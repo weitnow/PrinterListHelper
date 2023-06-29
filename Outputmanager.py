@@ -143,7 +143,89 @@ class Outputmanager:
                 worksheet.cell(row=i + 2, column=j + 1, value=value)
         workbook.save(file_path)
 
+    def create_output_excel_list_for_gilles(self, path_with_filename: str, title_of_worksheet: str, list_with_header_names: list, printermanager: Printermanager):
+        file_path = f'{path_with_filename}.xlsx'
 
+        #if no excelfile exists, create a new excel file, otherwise load the existing file
+        if not os.path.exists(f'{path_with_filename}.xlsx'):
+            workbook = openpyxl.Workbook()
+            worksheet = workbook.active
+            worksheet.title = title_of_worksheet
+        else:
+            workbook = openpyxl.load_workbook(file_path)
+
+        if title_of_worksheet in workbook.sheetnames: #check if the worksheets exists
+            worksheet = workbook[title_of_worksheet] # access the existing worksheet
+        else:
+            worksheet = workbook.create_sheet(title_of_worksheet) # create a new worksheet
+
+        mapping_location_to_id = {
+            "AMA" : 1,
+            "Albisgüetli" : 1,
+            "Winterthur" : 2,
+            "Regensdorf" : 3,
+            "Hinwil" : 4,
+            "Oberrieden" : 5,
+            "Bülach" : 6,
+            "Bassersdorf" : 7
+        }
+
+        mapping_locationid_to_lieugestion = {
+            1 : "Albisgüetli",
+            2 : "Winterthur",
+            3 : "Regensdorf",
+            4 : "Hinwil",
+            5 : "Oberrieden",
+            6 : "Bülach",
+            7 : "Bassersdorf"
+        }
+
+        # get the instance variable names and write them as headers
+        for i, variable in enumerate(list_with_header_names):
+            worksheet.cell(row=1, column=i + 1, value=variable)
+
+        #after writing the header, set row = 2, which is directly after the header
+        row = 2
+
+        for workspace in printermanager.workspaces:
+            # creates content for worksheet bureau
+            if title_of_worksheet == "Bureau":
+                id = workspace.id
+                libelle = workspace.name
+                value = workspace.name
+                worksheet.cell(row=row, column=1, value=id)
+                worksheet.cell(row=row, column=2, value=libelle)
+                worksheet.cell(row=row, column=3, value=value)
+                row += 1 # after writing the row increase the value that in the next iteration of the for loop we write the next row
+
+            # creates content for worksheet LieuGestion
+            elif title_of_worksheet == "LieuGestion":
+                pass
+
+            # creates content for worksheet LienBureauLieuGestion
+            elif title_of_worksheet == "LienBureauLieuGestion":
+                bureau = workspace.name
+                _location = workspace.location
+                lieuGestion = mapping_location_to_id[_location]
+                worksheet.cell(row=row, column=1, value=bureau)
+                worksheet.cell(row=row, column=2, value=lieuGestion)
+                row += 1 # after writing the row increase the value that in the next iteration of the for loop we write the next row
+
+            else:
+                raise Exception(f"{title_of_worksheet} cannot be used in this function")
+
+        if title_of_worksheet == "LieuGestion":
+            for key in mapping_locationid_to_lieugestion:
+                id = key
+                libelle = mapping_locationid_to_lieugestion[key]
+                value = key
+                worksheet.cell(row=row, column=1, value=id)
+                worksheet.cell(row=row, column=2, value=libelle)
+                worksheet.cell(row=row, column=3, value=value)
+                row += 1  # after writing the row increase the value that in the next iteration of the for loop we write the next row
+
+
+        workbook.save(file_path)
 
     def delete_printer_without_wcps(self, printer_list: list) -> list:
         """this function deletes all printerslots of a printer with no wcps. it means it is a printer used with

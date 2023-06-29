@@ -1,3 +1,5 @@
+import os.path
+
 from Outputmanager import Outputmanager
 from Printermanager import Printermanager
 
@@ -9,9 +11,9 @@ LOAD_PRINTER_LIST_INSPECT = True
 ################################
 LOAD_PRINTER_LIST_DEP_AAU = True
 LOAD_PRINTER_LIST_DEP_ADM = True
-LOAD_PRINTER_LIST_DEP_DIS = True
+LOAD_PRINTER_LIST_DEP_DIS = False
 LOAD_PRINTER_LIST_DEP_FIN = False
-LOAD_PRINTER_LIST_DEP_TEC = True
+LOAD_PRINTER_LIST_DEP_TEC = False
 LOAD_PRINTER_LIST_DEP_ZUL = True
 
 ################################
@@ -22,6 +24,7 @@ GENERATE_OUTPUT_EXCELFILE_ROBOT_PRINTERSERVER_ALL_PRINTER = True
 GENERATE_OUTPUT_EXCELFILE_ROBOT_CARI_ONLY_IF_CARI_RELEVANT_PRINTER = True
 GENERATE_OUTPUT_EXCELFILE_ROBOT_PRINTERSERVER_ONLY_IF_CARI_RELEVANT_PRINTER = True
 GENERATE_OUTPUT_EXCELFILE_SERDAR = True
+GENERATE_OUTPUT_EXCELFILE_GILLES = True
 
 SET_TWOSIDED_FROM_NONE_TO_TRUE = True
 SET_INSPECT_FROM_NONE_TO_FALSE = True
@@ -176,7 +179,40 @@ if GENERATE_OUTPUT_EXCELFILE_SERDAR:
     for printer in printerlist:
         list_of_dicts.append(printer.get_users_paperslots_workspaces(printermanager))
     outputmanager.create_output_excel_list_for_serdar(path_with_filename=path_with_filename, title_of_worksheet=title_of_worksheet, list_with_header_names=list_with_header_names, printer_list=list_of_dicts)
+###############################################################
+path_with_filename = "output/gilles"
+title_of_worksheet = None
+list_with_header_names = None
+
+if GENERATE_OUTPUT_EXCELFILE_GILLES:
+
+    # check if the file exists and if it does delete it
+    if os.path.exists(f'{path_with_filename}.xlsx'):
+        os.remove(f'{path_with_filename}.xlsx')
+
+
+    title_of_worksheet = "Bureau"
+    list_with_header_names = ["root.Profiles.Bureau-id", "root.Profiles.Bureau-libelle", "root.Profiles.Bureau-value"]
+    outputmanager.create_output_excel_list_for_gilles(path_with_filename=path_with_filename, title_of_worksheet=title_of_worksheet, list_with_header_names=list_with_header_names, printermanager=printermanager)
+
+    title_of_worksheet = "LieuGestion"
+    list_with_header_names = ["root.Profiles.LieuGestion-id", "root.Profiles.LieuGestion-libelle", "root.Profiles.LieuGestion-value"]
+    outputmanager.create_output_excel_list_for_gilles(path_with_filename=path_with_filename,
+                                                      title_of_worksheet=title_of_worksheet,
+                                                      list_with_header_names=list_with_header_names,
+                                                      printermanager=printermanager)
+
+    title_of_worksheet = "LienBureauLieuGestion"
+    list_with_header_names = ["root.Profiles.LienBuerauLieuGestion-bureau", "root.Profiles.LienBuerauLieuGestion-lieuGestion"]
+    outputmanager.create_output_excel_list_for_gilles(path_with_filename=path_with_filename,
+                                                      title_of_worksheet=title_of_worksheet,
+                                                      list_with_header_names=list_with_header_names,
+                                                      printermanager=printermanager)
+
+
 
 ###############################################################################
 #                                     OUTPUT-DEBUG                            #
 ###############################################################################
+
+print()
