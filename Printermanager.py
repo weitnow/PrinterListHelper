@@ -29,7 +29,7 @@ class Printermanager:
         for printer in self.printers:
             if printername == printer.printername:
                 return printer
-        raise Exception(f"Printer {printername} not found")
+        raise Exception(f"printermanger.get_printer() -> Printer {printername} not found in printermanger.printers (which means it the printer is most likely not defined in the printerlist of support")
 
     def get_printers(self, *, standort=None, buero=None, printername=None, ip=None, model=None, ):
         """returns all printers as a list
@@ -205,6 +205,42 @@ class Printermanager:
         logging.info(f"{amount_of_users_added} users added to workspaces from {path_to_excel_file}")
         #######################################################################################
 
+    def _load_users_to_windowsprinter(self, path_to_excel_file: str):
+        #######################################################################################
+        excellist = pd.read_excel(path_to_excel_file, sheet_name='User zu Windowsprinter')
+        for index, row in excellist.iterrows():
+            if isinstance(row['User'], str) and isinstance(row['Printername1'], str):
+                user = row['User']
+                printer1 = row['Printername1']
+                printer2 = None
+                printer3 = None
+                printer4 = None
+
+                if isinstance(row['Printername2'], str):
+                    printer2 = row['Printername2']
+
+                if isinstance(row['Printername3'], str):
+                    printer3 = row['Printername3']
+
+                if isinstance(row['Printername4'], str):
+                    printer4 = row['Printername4']
+
+                #create a list of printers to iterate through
+                printer_list = []
+                printer_list.append(printer1)
+                printer_list.append(printer2)
+                printer_list.append(printer3)
+                printer_list.append(printer4)
+
+                for printer in printer_list:
+                    if printer is not None:
+                        a_printer = self.get_printer(printer)
+                        a_printer.add_windowsuser(user) #calls the add_windowsuser-method of the printer class an adds user
+
+
+
+        #######################################################################################
+
     def _add_cariform_to_printer_from_printerlist_of_department(self, path_to_excel_file: str):
         #####################################################################################################
         # Add CARi-Form to the printers in self.printers - sheet Arbeitsplatz-Formular-Drucker
@@ -280,7 +316,7 @@ class Printermanager:
             if len(workspace.wcps) == 0 or len(workspace.users) == 0:
                 logging.warning(f"{workspace} has either no users or no wcps or both")
 
-    def load_printerlist_of_department(self, path_to_excel_file: str, departname: str):
+    def load_printerlist_of_department(self, path_to_excel_file: str, departname: str, load_user_to_windowsprinter: bool):
         """load the excel file config-printers of each department with the workspace, users and cariforms"""
         #load workspace from printerlist of department in printermanager.workspaces
         self._load_workspaces_from_printerlist_of_department(path_to_excel_file)
@@ -288,4 +324,6 @@ class Printermanager:
         self._load_users_and_add_to_workspace_from_printerlist_of_department(path_to_excel_file, departname)
         self._add_cariform_to_printer_from_printerlist_of_department(path_to_excel_file)
         self._verify_workspaces()
+        if load_user_to_windowsprinter:
+            self._load_users_to_windowsprinter(path_to_excel_file)
 

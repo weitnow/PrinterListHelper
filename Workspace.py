@@ -5,7 +5,6 @@ from WCPS import WCPS
 class Workspace:
 
     def __init__(self, id: int, name: str, location: str = None, department: str = None):
-
         self.users = set()
         self.wcps = set()
 

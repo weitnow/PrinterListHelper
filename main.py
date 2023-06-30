@@ -10,12 +10,13 @@ LOAD_PRINTER_LIST_SUPPORT = True
 LOAD_PRINTER_LIST_INSPECT = True
 ################################
 LOAD_PRINTER_LIST_DEP_AAU = True
-LOAD_PRINTER_LIST_DEP_ADM = True
+LOAD_PRINTER_LIST_DEP_ADM = False
 LOAD_PRINTER_LIST_DEP_DIS = False
 LOAD_PRINTER_LIST_DEP_FIN = False
 LOAD_PRINTER_LIST_DEP_TEC = False
 LOAD_PRINTER_LIST_DEP_ZUL = True
 
+LOAD_USER_TO_WINDOWSPRINTER_FROM_LIST_DEPS = True
 ################################
 PRINT_TO_CONSOLE = False
 
@@ -62,27 +63,27 @@ if LOAD_PRINTER_LIST_INSPECT:
 
 if LOAD_PRINTER_LIST_DEP_AAU:
     #load the printerlist of department AAU
-    printermanager.load_printerlist_of_department(PRINTER_LIST_AAU, "aau")
+    printermanager.load_printerlist_of_department(PRINTER_LIST_AAU, "aau", LOAD_USER_TO_WINDOWSPRINTER_FROM_LIST_DEPS)
 
 if LOAD_PRINTER_LIST_DEP_ADM:
     #load the printerlist of department ADM
-    printermanager.load_printerlist_of_department(PRINTER_LIST_ADM, "adm")
+    printermanager.load_printerlist_of_department(PRINTER_LIST_ADM, "adm", LOAD_USER_TO_WINDOWSPRINTER_FROM_LIST_DEPS)
 
 if LOAD_PRINTER_LIST_DEP_DIS:
     #load the printerlist of department DIS
-    printermanager.load_printerlist_of_department(PRINTER_LIST_DIS, "dis")
+    printermanager.load_printerlist_of_department(PRINTER_LIST_DIS, "dis", LOAD_USER_TO_WINDOWSPRINTER_FROM_LIST_DEPS)
 
 if LOAD_PRINTER_LIST_DEP_FIN:
     #load the printerlist of department FIN
-    printermanager.load_printerlist_of_department(PRINTER_LIST_FIN, "fin")
+    printermanager.load_printerlist_of_department(PRINTER_LIST_FIN, "fin", LOAD_USER_TO_WINDOWSPRINTER_FROM_LIST_DEPS)
 
 if LOAD_PRINTER_LIST_DEP_TEC:
     #load the printerlist of department TEC
-    printermanager.load_printerlist_of_department(PRINTER_LIST_TEC, "tec")
+    printermanager.load_printerlist_of_department(PRINTER_LIST_TEC, "tec", LOAD_USER_TO_WINDOWSPRINTER_FROM_LIST_DEPS)
 
 if LOAD_PRINTER_LIST_DEP_ZUL:
     #load the printerlist of department ZUL
-    printermanager.load_printerlist_of_department(PRINTER_LIST_ZUL, "zul")
+    printermanager.load_printerlist_of_department(PRINTER_LIST_ZUL, "zul", LOAD_USER_TO_WINDOWSPRINTER_FROM_LIST_DEPS)
 print("---------------------------------------------------------------------")
 
 ###############################################################################
@@ -177,39 +178,46 @@ if GENERATE_OUTPUT_EXCELFILE_SERDAR:
     printerlist = outputmanager.return_deep_copy_of_printermanger_printers()
     list_of_dicts = []
     for printer in printerlist:
+        #iterate through a copy of printermanger.printers and call for each printer a method which gets back a dict like {printername = pstva1769, paperslots = [s1, s2, s3], workspace = [AL-ZUL-PEZ1, AL_ZUL-PEZ2...], users = [B126SMP, B126IMD...]}
         list_of_dicts.append(printer.get_users_paperslots_workspaces(printermanager))
     outputmanager.create_output_excel_list_for_serdar(path_with_filename=path_with_filename, title_of_worksheet=title_of_worksheet, list_with_header_names=list_with_header_names, printer_list=list_of_dicts)
 ###############################################################
+
 path_with_filename = "output/gilles"
 title_of_worksheet = None
 list_with_header_names = None
 
 if GENERATE_OUTPUT_EXCELFILE_GILLES:
-
-    # check if the file exists and if it does delete it
+    # check if the file exists and if it does delete it. the file will newly created the first time when outputmanager.create_output_excel_list_for_gilles is run
     if os.path.exists(f'{path_with_filename}.xlsx'):
         os.remove(f'{path_with_filename}.xlsx')
-
-
+    #create worksheet bureau
     title_of_worksheet = "Bureau"
     list_with_header_names = ["root.Profiles.Bureau-id", "root.Profiles.Bureau-libelle", "root.Profiles.Bureau-value"]
     outputmanager.create_output_excel_list_for_gilles(path_with_filename=path_with_filename, title_of_worksheet=title_of_worksheet, list_with_header_names=list_with_header_names, printermanager=printermanager)
-
+    #create worksheet lieugestion
     title_of_worksheet = "LieuGestion"
     list_with_header_names = ["root.Profiles.LieuGestion-id", "root.Profiles.LieuGestion-libelle", "root.Profiles.LieuGestion-value"]
     outputmanager.create_output_excel_list_for_gilles(path_with_filename=path_with_filename,
                                                       title_of_worksheet=title_of_worksheet,
                                                       list_with_header_names=list_with_header_names,
                                                       printermanager=printermanager)
-
+    #create worksheet lienbureaugestion
     title_of_worksheet = "LienBureauLieuGestion"
     list_with_header_names = ["root.Profiles.LienBuerauLieuGestion-bureau", "root.Profiles.LienBuerauLieuGestion-lieuGestion"]
     outputmanager.create_output_excel_list_for_gilles(path_with_filename=path_with_filename,
                                                       title_of_worksheet=title_of_worksheet,
                                                       list_with_header_names=list_with_header_names,
                                                       printermanager=printermanager)
-
-
+    #create worksheet bureauusers
+    title_of_worksheet = "BureauUsers"
+    list_with_header_names = ["root.Profiles.Bureau-id",
+                              "root.Profiles.Bureau-libelle",
+                              "users"]
+    outputmanager.create_output_excel_list_for_gilles(path_with_filename=path_with_filename,
+                                                      title_of_worksheet=title_of_worksheet,
+                                                      list_with_header_names=list_with_header_names,
+                                                      printermanager=printermanager)
 
 ###############################################################################
 #                                     OUTPUT-DEBUG                            #

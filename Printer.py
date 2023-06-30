@@ -17,6 +17,8 @@ class Printer:
         self.printername = printername
         self.ip = ip
         self.papersources = []
+        self.user_to_windowsprinter = set() #contains all users as a string, which want this printer available on windows but do not use it for cari
+        self.pc_to_default_windowsprinter = set() #contains all pc as a string which wants this printer as their default windowsprinter
         self.model = model
         self.driver = None
 
@@ -49,7 +51,16 @@ class Printer:
 
         return(outputstring)
 
+    def add_windowsuser(self, username: str):
+        """adds a user to the user to windowsprinter list of this printer """
+        self.user_to_windowsprinter.add(username)
+
+    def add_pc(self, pcname: str):
+        """adds a pc to the pc to default windowsprinter list of this printer"""
+        self.pc_to_default_windowsprinter.add(pcname)
+
     def get_users_paperslots_workspaces(self, printermanager) -> dict:
+        """returns a dictionary like: {printername = pstva1769, paperslots = [s1, s2, s3], workspace = [AL-ZUL-PEZ1, AL_ZUL-PEZ2...], users = [B126SMP, B126IMD...]} """
         if printermanager is None:
             raise Exception("Need printermanager to access printermanager.workspaces")
 

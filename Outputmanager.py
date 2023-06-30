@@ -211,6 +211,16 @@ class Outputmanager:
                 worksheet.cell(row=row, column=2, value=lieuGestion)
                 row += 1 # after writing the row increase the value that in the next iteration of the for loop we write the next row
 
+            # creates content for worksheet BureauUsers
+            elif title_of_worksheet == "BureauUsers":
+                bureau_id = workspace.id
+                bureau_libelle = workspace.name
+                users = str(workspace.users)
+                worksheet.cell(row=row, column=1, value=bureau_id)
+                worksheet.cell(row=row, column=2, value=bureau_libelle)
+                worksheet.cell(row=row, column=3, value=users)
+                row += 1  # after writing the row increase the value that in the next iteration of the for loop we write the next row
+
             else:
                 raise Exception(f"{title_of_worksheet} cannot be used in this function")
 
@@ -223,7 +233,6 @@ class Outputmanager:
                 worksheet.cell(row=row, column=2, value=libelle)
                 worksheet.cell(row=row, column=3, value=value)
                 row += 1  # after writing the row increase the value that in the next iteration of the for loop we write the next row
-
 
         workbook.save(file_path)
 
