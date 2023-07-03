@@ -236,8 +236,17 @@ class Printermanager:
                     if printer is not None:
                         a_printer = self.get_printer(printer)
                         a_printer.add_windowsuser(user) #calls the add_windowsuser-method of the printer class an adds user
+        #######################################################################################
 
-
+    def _self_load_pcs_to_default_windowsprinter(self, path_to_excel_file: str):
+        #######################################################################################
+        excellist = pd.read_excel(path_to_excel_file, sheet_name='PC zu Default-Windowsprinter')
+        for index, row in excellist.iterrows():
+            if isinstance(row['Printername'], str):
+                pc = row['Name']
+                printer = row['Printername']
+                a_printer = self.get_printer(printer)
+                a_printer.add_pc(pc)
 
         #######################################################################################
 
@@ -316,7 +325,7 @@ class Printermanager:
             if len(workspace.wcps) == 0 or len(workspace.users) == 0:
                 logging.warning(f"{workspace} has either no users or no wcps or both")
 
-    def load_printerlist_of_department(self, path_to_excel_file: str, departname: str, load_user_to_windowsprinter: bool):
+    def load_printerlist_of_department(self, path_to_excel_file: str, departname: str, load_user_to_windowsprinter: bool, load_pc_to_default_windowsprinter: bool):
         """load the excel file config-printers of each department with the workspace, users and cariforms"""
         #load workspace from printerlist of department in printermanager.workspaces
         self._load_workspaces_from_printerlist_of_department(path_to_excel_file)
@@ -326,4 +335,6 @@ class Printermanager:
         self._verify_workspaces()
         if load_user_to_windowsprinter:
             self._load_users_to_windowsprinter(path_to_excel_file)
+        if load_pc_to_default_windowsprinter:
+            self._self_load_pcs_to_default_windowsprinter(path_to_excel_file)
 

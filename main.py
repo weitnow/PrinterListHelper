@@ -10,13 +10,14 @@ LOAD_PRINTER_LIST_SUPPORT = True
 LOAD_PRINTER_LIST_INSPECT = True
 ################################
 LOAD_PRINTER_LIST_DEP_AAU = True
-LOAD_PRINTER_LIST_DEP_ADM = False
-LOAD_PRINTER_LIST_DEP_DIS = False
-LOAD_PRINTER_LIST_DEP_FIN = False
-LOAD_PRINTER_LIST_DEP_TEC = False
+LOAD_PRINTER_LIST_DEP_ADM = True
+LOAD_PRINTER_LIST_DEP_DIS = True
+LOAD_PRINTER_LIST_DEP_FIN = False       #FIN noch auf False
+LOAD_PRINTER_LIST_DEP_TEC = True
 LOAD_PRINTER_LIST_DEP_ZUL = True
 
 LOAD_USER_TO_WINDOWSPRINTER_FROM_LIST_DEPS = True
+LOAD_PC_TO_DEFAULT_WINDOWSPRINTER_FROM_LIST_DEPS = True
 ################################
 PRINT_TO_CONSOLE = False
 
@@ -63,27 +64,27 @@ if LOAD_PRINTER_LIST_INSPECT:
 
 if LOAD_PRINTER_LIST_DEP_AAU:
     #load the printerlist of department AAU
-    printermanager.load_printerlist_of_department(PRINTER_LIST_AAU, "aau", LOAD_USER_TO_WINDOWSPRINTER_FROM_LIST_DEPS)
+    printermanager.load_printerlist_of_department(PRINTER_LIST_AAU, "aau", LOAD_USER_TO_WINDOWSPRINTER_FROM_LIST_DEPS, LOAD_PC_TO_DEFAULT_WINDOWSPRINTER_FROM_LIST_DEPS)
 
 if LOAD_PRINTER_LIST_DEP_ADM:
     #load the printerlist of department ADM
-    printermanager.load_printerlist_of_department(PRINTER_LIST_ADM, "adm", LOAD_USER_TO_WINDOWSPRINTER_FROM_LIST_DEPS)
+    printermanager.load_printerlist_of_department(PRINTER_LIST_ADM, "adm", LOAD_USER_TO_WINDOWSPRINTER_FROM_LIST_DEPS, LOAD_PC_TO_DEFAULT_WINDOWSPRINTER_FROM_LIST_DEPS)
 
 if LOAD_PRINTER_LIST_DEP_DIS:
     #load the printerlist of department DIS
-    printermanager.load_printerlist_of_department(PRINTER_LIST_DIS, "dis", LOAD_USER_TO_WINDOWSPRINTER_FROM_LIST_DEPS)
+    printermanager.load_printerlist_of_department(PRINTER_LIST_DIS, "dis", LOAD_USER_TO_WINDOWSPRINTER_FROM_LIST_DEPS, LOAD_PC_TO_DEFAULT_WINDOWSPRINTER_FROM_LIST_DEPS)
 
 if LOAD_PRINTER_LIST_DEP_FIN:
     #load the printerlist of department FIN
-    printermanager.load_printerlist_of_department(PRINTER_LIST_FIN, "fin", LOAD_USER_TO_WINDOWSPRINTER_FROM_LIST_DEPS)
+    printermanager.load_printerlist_of_department(PRINTER_LIST_FIN, "fin", LOAD_USER_TO_WINDOWSPRINTER_FROM_LIST_DEPS, LOAD_PC_TO_DEFAULT_WINDOWSPRINTER_FROM_LIST_DEPS)
 
 if LOAD_PRINTER_LIST_DEP_TEC:
     #load the printerlist of department TEC
-    printermanager.load_printerlist_of_department(PRINTER_LIST_TEC, "tec", LOAD_USER_TO_WINDOWSPRINTER_FROM_LIST_DEPS)
+    printermanager.load_printerlist_of_department(PRINTER_LIST_TEC, "tec", LOAD_USER_TO_WINDOWSPRINTER_FROM_LIST_DEPS, LOAD_PC_TO_DEFAULT_WINDOWSPRINTER_FROM_LIST_DEPS)
 
 if LOAD_PRINTER_LIST_DEP_ZUL:
     #load the printerlist of department ZUL
-    printermanager.load_printerlist_of_department(PRINTER_LIST_ZUL, "zul", LOAD_USER_TO_WINDOWSPRINTER_FROM_LIST_DEPS)
+    printermanager.load_printerlist_of_department(PRINTER_LIST_ZUL, "zul", LOAD_USER_TO_WINDOWSPRINTER_FROM_LIST_DEPS, LOAD_PC_TO_DEFAULT_WINDOWSPRINTER_FROM_LIST_DEPS)
 print("---------------------------------------------------------------------")
 
 ###############################################################################
@@ -134,7 +135,7 @@ list_with_header_names = ["Standort", "Arbeitsplatz (Büro)", "Printserver Link"
 
 ###############################################################
 path_with_filename = "output/robot_cari_printerserver_all_printers"
-title_of_worksheet = "kectest"
+title_of_worksheet = "CARi Druckerwarteschlangen"
 
 if GENERATE_OUTPUT_EXCELFILE_ROBOT_CARI_AND_PRINTERSERVER_ALL_PRINTER:
     printerlist = outputmanager.return_deep_copy_of_printermanger_printers()
@@ -142,7 +143,7 @@ if GENERATE_OUTPUT_EXCELFILE_ROBOT_CARI_AND_PRINTERSERVER_ALL_PRINTER:
 ###############################################################
 
 path_with_filename = "output/robot_cari_only_cari_relevant"
-title_of_worksheet = "kectest"
+title_of_worksheet = "CARi Druckerwarteschlangen"
 
 if GENERATE_OUTPUT_EXCELFILE_ROBOT_CARI_ONLY_IF_CARI_RELEVANT_PRINTER:
     printerlist = outputmanager.return_deep_copy_of_printermanger_printers()
@@ -151,7 +152,7 @@ if GENERATE_OUTPUT_EXCELFILE_ROBOT_CARI_ONLY_IF_CARI_RELEVANT_PRINTER:
 ###############################################################
 
 path_with_filename = "output/robot_printerserver_all_printers"
-title_of_worksheet = "kectest"
+title_of_worksheet = "CARi Druckerwarteschlangen"
 
 if GENERATE_OUTPUT_EXCELFILE_ROBOT_PRINTERSERVER_ALL_PRINTER:
     printerlist = outputmanager.return_deep_copy_of_printermanger_printers()
@@ -161,7 +162,7 @@ if GENERATE_OUTPUT_EXCELFILE_ROBOT_PRINTERSERVER_ALL_PRINTER:
 ###############################################################
 
 path_with_filename = "output/robot_printerserver_only_cari_relevant"
-title_of_worksheet = "kectest"
+title_of_worksheet = "CARi Druckerwarteschlangen"
 if GENERATE_OUTPUT_EXCELFILE_ROBOT_PRINTERSERVER_ONLY_IF_CARI_RELEVANT_PRINTER:
     printerlist = outputmanager.return_deep_copy_of_printermanger_printers()
     printerlist = outputmanager.delete_printer_without_wcps(printerlist)
@@ -170,9 +171,9 @@ if GENERATE_OUTPUT_EXCELFILE_ROBOT_PRINTERSERVER_ONLY_IF_CARI_RELEVANT_PRINTER:
     outputmanager.create_output_excel_list_for_robot(path_with_filename=path_with_filename, title_of_worksheet=title_of_worksheet, list_with_header_names=list_with_header_names, printer_list=printerlist)
 ###############################################################
 
-path_with_filename = "output/serdar"
-title_of_worksheet = "kectest"
-list_with_header_names = ["printername", "paperslots", "users"]
+path_with_filename = "output/printerlist_serdar"
+title_of_worksheet = "printers"
+list_with_header_names = ["printername", "paperslots", "users", "users_to_windowsprinter", "users_combined", "pcs_to_default_windowsprinter"]
 
 if GENERATE_OUTPUT_EXCELFILE_SERDAR:
     printerlist = outputmanager.return_deep_copy_of_printermanger_printers()
@@ -183,9 +184,9 @@ if GENERATE_OUTPUT_EXCELFILE_SERDAR:
     outputmanager.create_output_excel_list_for_serdar(path_with_filename=path_with_filename, title_of_worksheet=title_of_worksheet, list_with_header_names=list_with_header_names, printer_list=list_of_dicts)
 ###############################################################
 
-path_with_filename = "output/gilles"
-title_of_worksheet = None
-list_with_header_names = None
+path_with_filename = "output/bureau_lieugestion_list_gilles"
+title_of_worksheet = None       #this will be defined in the code block below
+list_with_header_names = None   #this will be defined in the code block below
 
 if GENERATE_OUTPUT_EXCELFILE_GILLES:
     # check if the file exists and if it does delete it. the file will newly created the first time when outputmanager.create_output_excel_list_for_gilles is run

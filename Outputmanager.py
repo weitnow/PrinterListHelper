@@ -130,10 +130,15 @@ class Outputmanager:
         worksheet.title = title_of_worksheet
 
         # get the instance variable names and write them as headers
+        # list_with_header_names = ["printername", "paperslots", "users", "users_to_windowsprinter", "users_combined", "pcs_to_default_windowsprinter"]
         for i, variable in enumerate(list_with_header_names):
             worksheet.cell(row=1, column=i + 1, value=variable)
 
+        # printer_list = {printername = pstva1769, paperslots = [s1, s2, s3], workspace = [AL-ZUL-PEZ1,
+        # AL_ZUL-PEZ2...], users = [B126SMP, B126IMD...], users_to_windowsprinter = [B126KEC, ...],
+        # pcs_to_default_windowsprinter = [CSTVA1234, ...]}
         for i, dictionary in enumerate(printer_list):
+            #dictionary is one printer like {{'printername': 'PSTVA3170', 'paperslots': ['S1', 'S2'], 'workspaces': [], 'users': [], 'users_to_windowsprinter': ['B126VOK'], 'pcs_to_default_windowsprinter': []}}
             value_list = []
             for variable in list_with_header_names:
                 value_list.append(dictionary.get(variable))

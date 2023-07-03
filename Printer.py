@@ -4,7 +4,7 @@ from Papersource import Papersource
 # if the model starts with name of key then set it to driver name "value of dict"
 # for example: if Model starts with "Brother" then set "Brother HL-6250DN series" as drivername
 DRIVERMAPPING = {
-    "Brother" : "Brother HL-6250DN series",
+    "Brother" : "Brother HL-L6250DN series",
     "Canon" : "Canon Generic Plus PCL6"
 }
 
@@ -54,13 +54,15 @@ class Printer:
     def add_windowsuser(self, username: str):
         """adds a user to the user to windowsprinter list of this printer """
         self.user_to_windowsprinter.add(username)
+        print()
 
     def add_pc(self, pcname: str):
         """adds a pc to the pc to default windowsprinter list of this printer"""
         self.pc_to_default_windowsprinter.add(pcname)
 
+
     def get_users_paperslots_workspaces(self, printermanager) -> dict:
-        """returns a dictionary like: {printername = pstva1769, paperslots = [s1, s2, s3], workspace = [AL-ZUL-PEZ1, AL_ZUL-PEZ2...], users = [B126SMP, B126IMD...]} """
+        """returns a dictionary like: {printername = pstva1769, paperslots = [s1, s2, s3], workspace = [AL-ZUL-PEZ1, AL_ZUL-PEZ2...], users = [B126SMP, B126IMD...], users_to_windowsprinter = [B126KEC, ...], pcs_to_default_windowsprinter = [CSTVA1234, ...]} """
         if printermanager is None:
             raise Exception("Need printermanager to access printermanager.workspaces")
 
@@ -82,9 +84,17 @@ class Printer:
                     for users in workspace.users:
                         my_dict["users"].add(users)
 
+        my_dict["users_to_windowsprinter"] = self.user_to_windowsprinter
+        my_dict["users_combined"] = my_dict["users"].union(my_dict["users_to_windowsprinter"]) #combine the two sets to one...so we have under users_combined all users...the cari users and the windows users
+        my_dict["pcs_to_default_windowsprinter"] = self.pc_to_default_windowsprinter
+
         #cast sets to lists
         my_dict["workspaces"] = list(my_dict["workspaces"])
         my_dict["users"] = list(my_dict["users"])
+        my_dict["users_to_windowsprinter"] = list(my_dict["users_to_windowsprinter"])
+        my_dict["pcs_to_default_windowsprinter"] = list(my_dict["pcs_to_default_windowsprinter"])
+        my_dict["users_combined"] = list(my_dict["users_combined"])
+
         return my_dict
 
 
