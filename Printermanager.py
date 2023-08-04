@@ -4,7 +4,6 @@ from Printer import Printer
 from Workspace import Workspace
 import logging
 
-
 class Printermanager:
 
     # the implemented __new__ methode makes sure this class can only be used as a singleton
