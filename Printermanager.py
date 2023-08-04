@@ -191,9 +191,35 @@ class Printermanager:
             if departmentname == "zul":
                 if isinstance(row['Fachbereich'], str) and isinstance(row['Albisgüetli'], str):
                     for workspace in self.workspaces:
-                        if workspace.department == departmentname.upper():
+                        if workspace.department == departmentname.upper() and workspace.location == 'Albisgüetli':
                             amount_of_users_added += 1
                             workspace.add_user(row['User'])
+                elif isinstance(row['Fachbereich'], str) and isinstance(row['Winterthur'], str):
+                    for workspace in self.workspaces:
+                        if workspace.department == departmentname.upper() and workspace.location == 'Winterthur':
+                            amount_of_users_added += 1
+                            workspace.add_user(row['User'])
+                elif isinstance(row['Fachbereich'], str) and isinstance(row['Regensdorf'], str):
+                    for workspace in self.workspaces:
+                        if workspace.department == departmentname.upper() and workspace.location == 'Regensdorf':
+                            amount_of_users_added += 1
+                            workspace.add_user(row['User'])
+                elif isinstance(row['Fachbereich'], str) and isinstance(row['Hinwil'], str):
+                    for workspace in self.workspaces:
+                        if workspace.department == departmentname.upper() and workspace.location == 'Hinwil':
+                            amount_of_users_added += 1
+                            workspace.add_user(row['User'])
+                elif isinstance(row['Fachbereich'], str) and isinstance(row['Bülach'], str):
+                    for workspace in self.workspaces:
+                        if workspace.department == departmentname.upper() and workspace.location == 'Bülach':
+                            amount_of_users_added += 1
+                            workspace.add_user(row['User'])
+                elif isinstance(row['Fachbereich'], str) and isinstance(row['Bassersdorf'], str):
+                    for workspace in self.workspaces:
+                        if workspace.department == departmentname.upper() and workspace.location == 'Bassersdorf':
+                            amount_of_users_added += 1
+                            workspace.add_user(row['User'])
+
             else:
                 if isinstance(row['Fachbereich'], str):
                     for workspace in self.workspaces:

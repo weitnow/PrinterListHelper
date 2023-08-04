@@ -1,8 +1,8 @@
-INFO:root:347 printers from input/all_printers_list_of_support/Druckerliste_Support_20062023.xlsx added
-WARNING:root:PSTVA7601 has S3:A5 in input/printers_inspect/Druckerliste_Inspect_20062023.xlsx but different value in printerlist of support
-WARNING:root:PSTVA7601 has S2:A5 in input/printers_inspect/Druckerliste_Inspect_20062023.xlsx but different value in printerlist of support
-WARNING:root:PSTVA5670 has S1:A4 in input/printers_inspect/Druckerliste_Inspect_20062023.xlsx but different value in printerlist of support
+INFO:root:348 printers from input/all_printers_list_of_support/Druckerliste_Support_20062023.xlsx added
 WARNING:root:PSTVA5670 has S3:A5 in input/printers_inspect/Druckerliste_Inspect_20062023.xlsx but different value in printerlist of support
+WARNING:root:PSTVA5670 has S1:A4 in input/printers_inspect/Druckerliste_Inspect_20062023.xlsx but different value in printerlist of support
+WARNING:root:PSTVA7601 has S2:A5 in input/printers_inspect/Druckerliste_Inspect_20062023.xlsx but different value in printerlist of support
+WARNING:root:PSTVA7601 has S3:A5 in input/printers_inspect/Druckerliste_Inspect_20062023.xlsx but different value in printerlist of support
 INFO:root:29 printers has been updated from input/printers_inspect/Druckerliste_Inspect_20062023.xlsx
 INFO:root:1 workspaces from input/printers_by_department/AAU.xlsx sheet Arbeitsplatz added
 INFO:root:13 users added to workspaces from input/printers_by_department/AAU.xlsx
@@ -12,11 +12,54 @@ INFO:root:1 workspaces from input/printers_by_department/ADM.xlsx sheet Arbeitsp
 INFO:root:49 users added to workspaces from input/printers_by_department/ADM.xlsx
 INFO:root:0 papersources from input/printers_by_department/ADM.xlsx updated with cariform=cariform, twosided=False, inspect=False, workspace=workspace
 WARNING:root:0 papersources from input/printers_by_department/ADM.xlsx updated with paperformat=paperformat [CONFLICT], cariform=cariform, twosided=False, inspect=False, workspace=workspace
-WARNING:root:Workspace ID 1, LE-ADM-Arbeitsbereich1, Location: AMA, Department: ADM users 49 has either no users or no wcps or both
+WARNING:root:Workspace ID 2.0, LE-ADM-Arbeitsbereich_1, Location: AMA, Department: ADM users 49 has either no users or no wcps or both
 INFO:root:2 workspaces from input/printers_by_department/DIS.xlsx sheet Arbeitsplatz added
 INFO:root:34 users added to workspaces from input/printers_by_department/DIS.xlsx
 INFO:root:2 papersources from input/printers_by_department/DIS.xlsx updated with cariform=cariform, twosided=False, inspect=False, workspace=workspace
 WARNING:root:0 papersources from input/printers_by_department/DIS.xlsx updated with paperformat=paperformat [CONFLICT], cariform=cariform, twosided=False, inspect=False, workspace=workspace
-WARNING:root:Workspace ID 1, LE-ADM-Arbeitsbereich1, Location: AMA, Department: ADM users 49 has either no users or no wcps or both
+WARNING:root:Workspace ID 2.0, LE-ADM-Arbeitsbereich_1, Location: AMA, Department: ADM users 49 has either no users or no wcps or both
 INFO:root:9 workspaces from input/printers_by_department/TEC.xlsx sheet Arbeitsplatz added
 INFO:root:1296 users added to workspaces from input/printers_by_department/TEC.xlsx
+INFO:root:14 papersources from input/printers_by_department/TEC.xlsx updated with cariform=cariform, twosided=False, inspect=False, workspace=workspace
+WARNING:root:2 papersources from input/printers_by_department/TEC.xlsx updated with paperformat=paperformat [CONFLICT], cariform=cariform, twosided=False, inspect=False, workspace=workspace
+WARNING:root:PSTVA1629 has M0 : A5 in input/printers_by_department/TEC.xlsx but different value in printerlist of support
+WARNING:root:PSTVA2600 has M0 : A5 in input/printers_by_department/TEC.xlsx but different value in printerlist of support
+WARNING:root:Workspace ID 2.0, LE-ADM-Arbeitsbereich_1, Location: AMA, Department: ADM users 49 has either no users or no wcps or both
+INFO:root:35 workspaces from input/printers_by_department/ZUL.xlsx sheet Arbeitsplatz added
+INFO:root:245 users added to workspaces from input/printers_by_department/ZUL.xlsx
+INFO:root:31 papersources from input/printers_by_department/ZUL.xlsx updated with cariform=cariform, twosided=False, inspect=False, workspace=workspace
+WARNING:root:25 papersources from input/printers_by_department/ZUL.xlsx updated with paperformat=paperformat [CONFLICT], cariform=cariform, twosided=False, inspect=False, workspace=workspace
+WARNING:root:PSTVA1736 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1765 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1744 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1734 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1740 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1737 has S1 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1739 has S1 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1766 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1731 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1764 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1732 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1746 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1742 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1763 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1733 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1742 has S1 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1743 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1747 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1735 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1764 has S1 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1744 has S1 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1730 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1738 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1737 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1739 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:Workspace ID 2.0, LE-ADM-Arbeitsbereich_1, Location: AMA, Department: ADM users 49 has either no users or no wcps or both
+WARNING:root:Workspace ID 14, AL-ZUL-CC_61, Location: Albisgüetli, Department: ZUL users 7 has either no users or no wcps or both
+WARNING:root:Workspace ID 22, AL-ZUL-FZZ_1, Location: Albisgüetli, Department: ZUL users 7 has either no users or no wcps or both
+WARNING:root:Workspace ID 23, AL-ZUL-FZZ_2, Location: Albisgüetli, Department: ZUL users 7 has either no users or no wcps or both
+WARNING:root:Workspace ID 24, AL-ZUL-FZZ_3, Location: Albisgüetli, Department: ZUL users 7 has either no users or no wcps or both
+WARNING:root:Workspace ID 25, AL-ZUL-FZZ_4, Location: Albisgüetli, Department: ZUL users 7 has either no users or no wcps or both
+WARNING:root:Workspace ID 26, AL-ZUL-FZZ_5, Location: Albisgüetli, Department: ZUL users 7 has either no users or no wcps or both
+WARNING:root:Workspace ID 27, AL-ZUL-FZZ_6, Location: Albisgüetli, Department: ZUL users 7 has either no users or no wcps or both
+WARNING:root:Workspace ID 28, AL-ZUL-FZZ_7, Location: Albisgüetli, Department: ZUL users 7 has either no users or no wcps or both

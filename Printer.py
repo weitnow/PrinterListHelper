@@ -5,7 +5,8 @@ from Papersource import Papersource
 # for example: if Model starts with "Brother" then set "Brother HL-6250DN series" as drivername
 DRIVERMAPPING = {
     "Brother" : "Brother HL-L6250DN series",
-    "Canon" : "Canon Generic Plus PCL6"
+    "Canon" : "Canon Generic Plus PCL6",
+    "Xerox" : "Xerox VersaLink C9000"
 }
 
 class Printer:

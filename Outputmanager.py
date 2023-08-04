@@ -54,9 +54,26 @@ class Outputmanager:
                             new_dict["Inspect"] = ""
 
                         if papersource.twosided == True:
-                            new_dict["2-sided"] = "2-sided"
+                            if instance.driver == "Brother HL-L6250DN series":
+                                new_dict["2-sided"] = "2-sided"
+                            elif instance.driver == "Canon Generic Plus PCL6":
+                                new_dict["2-sided"] = "2-sided Printing"
+                            elif instance.driver == "Xerox VersaLink C9000":
+                                new_dict["2-sided"] = "2-sided"
+                            else:
+                                raise Exception("Unkown Driver")
                         else:
-                            new_dict["2-sided"] = "None"
+                            if instance.driver == "Brother HL-L6250DN series":
+                                new_dict["2-sided"] = "None"
+                            elif instance.driver == "Canon Generic Plus PCL6":
+                                new_dict["2-sided"] = "1-sided Printing"
+                            elif instance.driver == "Xerox VersaLink C9000":
+                                new_dict["2-sided"] = "None"
+                            else:
+                                raise Exception("Unkown Driver")
+
+
+
 
                         copies_papersource_for_each_wcps.append(new_dict) #now we have for each wcps a copy of the papersource dict with all the same values
 
@@ -89,9 +106,15 @@ class Outputmanager:
                         new_dict["Inspect"] = ""
 
                     if papersource.twosided == True:
-                        new_dict["2-sided"] = "2-sided"
+                        if instance.driver == "Brother HL-L6250DN series":
+                            new_dict["2-sided"] = "2-sided"
+                        elif instance.driver == "Canon Generic Plus PCL6":
+                            new_dict["2-sided"] = "2-sided Printing"
                     elif papersource.twosided == False:
-                        new_dict["2-sided"] = "None"
+                        if instance.driver == "Brother HL-L6250DN series":
+                            new_dict["2-sided"] = "None"
+                        elif instance.driver == "Canon Generic Plus PCL6":
+                            new_dict["2-sided"] = "1-sided Printing"
                     else:
                         new_dict["2-sided"] = ""
 
