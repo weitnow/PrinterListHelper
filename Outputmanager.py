@@ -2,6 +2,8 @@ import os
 import openpyxl
 from Printermanager import Printermanager
 import copy
+import pickle
+import platform
 
 class Outputmanager:
 
@@ -141,7 +143,7 @@ class Outputmanager:
                 worksheet.cell(row=i + 2, column=j + 1, value=value)
         workbook.save(file_path)
 
-    def create_output_excel_list_for_serdar(self, path_with_filename: str, title_of_worksheet: str, list_with_header_names: list, printer_list: list):
+    def create_output_excel_list_for_serdar(self, path_with_filename: str, title_of_worksheet: str, list_with_header_names: list, printer_list: list, pickle_printer_list = None):
         file_path = f'{path_with_filename}.xlsx'
 
         # check if the file exists and if it does delete it
@@ -151,6 +153,9 @@ class Outputmanager:
         workbook = openpyxl.Workbook()
         worksheet = workbook.active
         worksheet.title = title_of_worksheet
+
+        if pickle_printer_list:
+            print(pickle_printer_list)
 
         # get the instance variable names and write them as headers
         # list_with_header_names = ["printername", "paperslots", "users", "users_to_windowsprinter", "users_combined", "pcs_to_default_windowsprinter"]
@@ -343,7 +348,48 @@ class Outputmanager:
 
         return printer_list
 
+    def pickle_save(self, list_to_save, output_folder: str, filename: str):
 
+        os_name = platform.system()
+
+        if os_name == "Windows":
+            parent_dir = "output\pickle-files"
+        else:
+            parent_dir = "/output/pickle-files"
+
+        path = os.path.join(parent_dir, output_folder)
+
+        #create the outputfolder if it doesn't exist'
+        os.makedirs(path, exist_ok=True)
+
+        file_path = os.path.join(path, f"{filename}.pkl")
+        print(file_path)
+        #Open a file in binary write mode
+        with open(file_path, 'wb') as file:
+            pickle.dump(list_to_save, file)
+
+    def pickle_load(self, input_folder: str, filename: str):
+
+        os_name = platform.system()
+
+        if os_name == "Windows":
+            parent_dir = "output\pickle-files"
+        else:
+            parent_dir = "/output/pickle-files"
+
+        path = os.path.join(parent_dir, input_folder)
+
+        file_path = os.path.join(path, f"{filename}.pkl")
+
+        with open(file_path, 'rb') as file:
+            loaded_data = pickle.load(file)
+
+        return loaded_data
+
+    def return_delta_of_two_lists(self, list1: list, list2: list) -> list:
+        """warning, method works only with simple list"""
+        delta = [item for item in list1 if item not in list2] + [item for item in list2 if item not in list1]
+        return delta
 
 
 

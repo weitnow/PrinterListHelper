@@ -9,15 +9,23 @@ from Printermanager import Printermanager
 LOAD_PRINTER_LIST_SUPPORT = True
 LOAD_PRINTER_LIST_INSPECT = True
 ################################
-LOAD_PRINTER_LIST_DEP_AAU = True
+LOAD_PRINTER_LIST_DEP_AAU = False
 LOAD_PRINTER_LIST_DEP_ADM = True
-LOAD_PRINTER_LIST_DEP_DIS = True
+LOAD_PRINTER_LIST_DEP_DIS = False
 LOAD_PRINTER_LIST_DEP_FIN = False       #FIN noch auf False
-LOAD_PRINTER_LIST_DEP_TEC = True
-LOAD_PRINTER_LIST_DEP_ZUL = True
+LOAD_PRINTER_LIST_DEP_TEC = False
+LOAD_PRINTER_LIST_DEP_ZUL = False
 
 LOAD_USER_TO_WINDOWSPRINTER_FROM_LIST_DEPS = True
 LOAD_PC_TO_DEFAULT_WINDOWSPRINTER_FROM_LIST_DEPS = True
+################################
+#PRINTERLIST SERDAR
+SAVE_PICKLE_SERDAR = False
+SAVE_PICKLE_SERDAR_NAME = "06082023"
+LOAD_PICKLE_SERDAR = False
+LOAD_PICKLE_SERDAR_NAME = "06082023"
+
+
 ################################
 PRINT_TO_CONSOLE = False
 
@@ -181,7 +189,17 @@ if GENERATE_OUTPUT_EXCELFILE_SERDAR:
     for printer in printerlist:
         #iterate through a copy of printermanger.printers and call for each printer a method which gets back a dict like {printername = pstva1769, paperslots = [s1, s2, s3], workspace = [AL-ZUL-PEZ1, AL_ZUL-PEZ2...], users = [B126SMP, B126IMD...]}
         list_of_dicts.append(printer.get_users_paperslots_workspaces(printermanager))
-    outputmanager.create_output_excel_list_for_serdar(path_with_filename=path_with_filename, title_of_worksheet=title_of_worksheet, list_with_header_names=list_with_header_names, printer_list=list_of_dicts)
+
+    if SAVE_PICKLE_SERDAR:
+        outputmanager.pickle_save(list_of_dicts, 'serdar', SAVE_PICKLE_SERDAR_NAME)
+
+    if LOAD_PICKLE_SERDAR:
+        pickle_printer_list = outputmanager.pickle_load('serdar', LOAD_PICKLE_SERDAR_NAME)
+    else:
+        pickle_printer_list = None
+
+
+    outputmanager.create_output_excel_list_for_serdar(path_with_filename=path_with_filename, title_of_worksheet=title_of_worksheet, list_with_header_names=list_with_header_names, printer_list=list_of_dicts, pickle_printer_list=pickle_printer_list)
 ###############################################################
 
 path_with_filename = "output/bureau_lieugestion_list_gilles"
@@ -223,5 +241,4 @@ if GENERATE_OUTPUT_EXCELFILE_GILLES:
 ###############################################################################
 #                                     OUTPUT-DEBUG                            #
 ###############################################################################
-
 print()
