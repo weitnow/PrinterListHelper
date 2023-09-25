@@ -1,5 +1,5 @@
 class WCPS:
-
+    """WCPS stands for Workspace-Name, Cariform, Printername, Slot"""
     def __init__(self, workspace_name: str, cariform: str, printername:str, printerslot: str, department: str = None, workspace_id: str = None, workspace_user_list: list = None):
         self.workspace_name = workspace_name
         self.cariform = cariform

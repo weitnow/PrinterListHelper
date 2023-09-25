@@ -198,27 +198,27 @@ class Printermanager:
                         if workspace.department == departmentname.upper() and workspace.location == 'Albisgüetli':
                             amount_of_users_added += 1
                             workspace.add_user(row['User'])
-                elif isinstance(row['Fachbereich'], str) and isinstance(row['Winterthur'], str):
+                if isinstance(row['Fachbereich'], str) and isinstance(row['Winterthur'], str):
                     for workspace in self.workspaces:
                         if workspace.department == departmentname.upper() and workspace.location == 'Winterthur':
                             amount_of_users_added += 1
                             workspace.add_user(row['User'])
-                elif isinstance(row['Fachbereich'], str) and isinstance(row['Regensdorf'], str):
+                if isinstance(row['Fachbereich'], str) and isinstance(row['Regensdorf'], str):
                     for workspace in self.workspaces:
                         if workspace.department == departmentname.upper() and workspace.location == 'Regensdorf':
                             amount_of_users_added += 1
                             workspace.add_user(row['User'])
-                elif isinstance(row['Fachbereich'], str) and isinstance(row['Hinwil'], str):
+                if isinstance(row['Fachbereich'], str) and isinstance(row['Hinwil'], str):
                     for workspace in self.workspaces:
                         if workspace.department == departmentname.upper() and workspace.location == 'Hinwil':
                             amount_of_users_added += 1
                             workspace.add_user(row['User'])
-                elif isinstance(row['Fachbereich'], str) and isinstance(row['Bülach'], str):
+                if isinstance(row['Fachbereich'], str) and isinstance(row['Bülach'], str):
                     for workspace in self.workspaces:
                         if workspace.department == departmentname.upper() and workspace.location == 'Bülach':
                             amount_of_users_added += 1
                             workspace.add_user(row['User'])
-                elif isinstance(row['Fachbereich'], str) and isinstance(row['Bassersdorf'], str):
+                if isinstance(row['Fachbereich'], str) and isinstance(row['Bassersdorf'], str):
                     for workspace in self.workspaces:
                         if workspace.department == departmentname.upper() and workspace.location == 'Bassersdorf':
                             amount_of_users_added += 1
@@ -352,8 +352,10 @@ class Printermanager:
     def _verify_workspaces(self):
         """loop for workspaces in self.workspaces and checks if all have users and wcps objects. if either one is missing it will log a warning in the logfile"""
         for workspace in self.workspaces:
-            if len(workspace.wcps) == 0 or len(workspace.users) == 0:
-                logging.warning(f"{workspace} has either no users or no wcps or both")
+            if len(workspace.wcps) == 0:
+                logging.warning(f"{workspace} has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker")
+            if len(workspace.users) == 0:
+                logging.warning(f"{workspace} has no users")
 
     def load_printerlist_of_department(self, path_to_excel_file: str, departname: str, load_user_to_windowsprinter: bool, load_pc_to_default_windowsprinter: bool):
         """load the excel file config-printers of each department with the workspace, users and cariforms"""
