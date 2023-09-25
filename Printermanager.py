@@ -3,6 +3,7 @@ import os
 from Printer import Printer
 from Workspace import Workspace
 import logging
+from copy import deepcopy
 
 class Printermanager:
 
@@ -21,6 +22,10 @@ class Printermanager:
 
         self.printers = []          #contains all printers with printerslots only once. for example pstva1139-s1 cannot exist more then once.
         self.workspaces = []        #contains all workspaces only once. for example AL-ZUL-FZZSpez1 cannot exist more then once.
+
+        self.printers_from_loaded_pickle = None #contains all printers with printerslots only once. for example pstva1139-s1 cannot exist more then once.
+        self.printers_which_have_changed_compared_with_loaded_pickle = [] #contains all printers which have a changed attributes if compared to the loaded_pickle_file
+        self.printers_which_have_changed_compared_with_loaded_pickle_only_changed_attributes = [] #contains delta/difference between current self.printers and loaded printers from loaded pickle file
 
 
     def get_printer(self, printername: str):
@@ -362,4 +367,81 @@ class Printermanager:
             self._load_users_to_windowsprinter(path_to_excel_file)
         if load_pc_to_default_windowsprinter:
             self._self_load_pcs_to_default_windowsprinter(path_to_excel_file)
+
+    def compare_two_printer_with_same_name_return_difference(self, printer1: Printer, printer2: Printer) -> tuple:
+        """as input it accepts to printer and compares them. it returns a tuple. if all attributes of printer are identical it returns (true, [printer1]) in the form of a list. if there is a difference it returns a list with 3 printers. the
+        first one is printer1, the second one is printer2 and the third one is a new printer object printer3 with the delta between printer1 and printer2 like (false, [printer1, printer2, deltaprinter])"""
+
+        if printer1.printername == printer2.printername:
+            standort = printer1.standort == printer2.standort #string
+            if isinstance(printer1.buero, str):
+                buero = printer1.buero == printer2.buero #string
+            else:
+                buero = True
+            printername = printer1.printername == printer2.printername  #string
+            ip = printer1.ip == printer2.ip #string
+            papersources = True #TODO not implemented yet
+            user_to_windowsprinter = printer1.user_to_windowsprinter == printer2.user_to_windowsprinter #set
+            user_to_windowsprinter_for_cari = printer1.user_to_windowsprinter_for_cari == printer2.user_to_windowsprinter_for_cari #set
+            pc_to_default_windowsprinter = printer1.pc_to_default_windowsprinter == printer2.pc_to_default_windowsprinter #set
+            model = printer1.model == printer2.model    #string
+            driver = printer1.driver == printer2.driver #string
+
+            printer_identical = standort and buero and printername and ip and papersources and user_to_windowsprinter and user_to_windowsprinter_for_cari and pc_to_default_windowsprinter and model and driver
+            returning_printer = [] #is a list of either one printer (if printers are identical) or a list of three printers like printer1, printer2, new_printer_object with delta between printer 1 and 2
+
+
+            if printer_identical:
+                printer1 = deepcopy(printer1)
+                returning_printer.append(printer1)
+            else:
+                delta_user_to_windowsprinter = self._return_difference_of_two_sets(printer1.user_to_windowsprinter, printer2.user_to_windowsprinter)
+                delta_user_to_windowsprinter_for_cari = self._return_difference_of_two_sets(printer1.user_to_windowsprinter_for_cari, printer2.user_to_windowsprinter_for_cari)
+                delta_pc_to_default_windowsprinter = self._return_difference_of_two_sets(printer1.pc_to_default_windowsprinter, printer2.pc_to_default_windowsprinter)
+                printer1 = deepcopy(printer1)
+                printer2 = deepcopy(printer2)
+                printer_delta = Printer(printer2.standort, printer2.buero, printer2.printername, printer2.ip, *printer2.papersource_for_pickle, printer2.model, delta_user_to_windowsprinter, delta_user_to_windowsprinter_for_cari, delta_pc_to_default_windowsprinter)
+
+                printer_delta.papersources = deepcopy(printer2.papersources)
+
+                returning_printer.append(printer1)
+                returning_printer.append(printer2)
+                returning_printer.append(printer_delta)
+
+                logging.info(f"Printer {printer1.printername} has different attributes to last generated list")
+
+            #print(f"standort:{standort}, buero:{buero}, printername:{printername}, ip:{ip}, papersources:{papersources}, user_to_windowsprinter:{user_to_windowsprinter}, user_to_windowsprinter_for_cari:{user_to_windowsprinter_for_cari}, pc_to_default_windowsprinter:{pc_to_default_windowsprinter}, model:{model}, driver:{driver}")
+
+            return (printer_identical, returning_printer)
+
+    def _return_difference_of_two_sets(self, set1: set, set2: set) -> set:
+        present_in_set1_but_not_set2 = set1 - set2
+        present_in_set2_but_not_set1 = set2 - set1
+        return present_in_set1_but_not_set2.union(present_in_set2_but_not_set1)
+
+    def compare_two_printerlists_and_return_difference(self, printerlist1: list, printerlist2: list) -> list:
+        """the function returns a list of tuples like this [(true, printer2), (true, printer2), (false, printer1, printer2, printer_delta)....]
+        when the printer is identical in printerlist1 and printerlist2 then (true, printer2) is returned. if it has not identical attributes
+        then (false, printer1, printer2, printer_delta) is returned whre printer1 is the printer of printerlist1, printer2 is the printer of printerlist2 with changed attributes
+        and printer_delta is the delta between them
+        """
+        printerlist = []
+        for printer1 in printerlist1:
+            for printer2 in printerlist2:
+                compared_printer = self.compare_two_printer_with_same_name_return_difference(printer1, printer2)
+                if printer1.printername == printer2.printername:
+                    printerlist.append(compared_printer)
+        return printerlist
+
+
+    def add_cari_users_to_printer(self):
+        """adds users from each papersource to the printer. for example printer pstva1111-s1 has b126kec und pastva1111-s2 has b126swm then both user gets added to pstva1111"""
+        for printer in self.printers:
+            for workspace in self.workspaces:
+                for wcps in workspace.wcps:
+                    if printer.printername == wcps.printername:
+                        for user in wcps.workspace_users:
+                            printer.add_windowsuser_for_cari(user)
+
+
 

@@ -1,11 +1,15 @@
-INFO:root:348 printers from input/all_printers_list_of_support/Druckerliste_Support_20062023.xlsx added
-WARNING:root:PSTVA5670 has S3:A5 in input/printers_inspect/Druckerliste_Inspect_20062023.xlsx but different value in printerlist of support
-WARNING:root:PSTVA7601 has S3:A5 in input/printers_inspect/Druckerliste_Inspect_20062023.xlsx but different value in printerlist of support
+WARNING:root:Warning, IP 0.0.0.0 is defined more then once in input/all_printers_list_of_support/Druckerliste_Support.xlsx
+WARNING:root:Warning, IP 0.0.0.0 is defined more then once in input/all_printers_list_of_support/Druckerliste_Support.xlsx
+WARNING:root:Warning, IP 0.0.0.0 is defined more then once in input/all_printers_list_of_support/Druckerliste_Support.xlsx
+WARNING:root:Warning, IP 0.0.0.0 is defined more then once in input/all_printers_list_of_support/Druckerliste_Support.xlsx
+INFO:root:364 printers from input/all_printers_list_of_support/Druckerliste_Support.xlsx added
 WARNING:root:PSTVA5670 has S1:A4 in input/printers_inspect/Druckerliste_Inspect_20062023.xlsx but different value in printerlist of support
 WARNING:root:PSTVA7601 has S2:A5 in input/printers_inspect/Druckerliste_Inspect_20062023.xlsx but different value in printerlist of support
+WARNING:root:PSTVA7601 has S3:A5 in input/printers_inspect/Druckerliste_Inspect_20062023.xlsx but different value in printerlist of support
+WARNING:root:PSTVA5670 has S3:A5 in input/printers_inspect/Druckerliste_Inspect_20062023.xlsx but different value in printerlist of support
 INFO:root:29 printers has been updated from input/printers_inspect/Druckerliste_Inspect_20062023.xlsx
-INFO:root:1 workspaces from input/printers_by_department/ADM.xlsx sheet Arbeitsplatz added
-INFO:root:49 users added to workspaces from input/printers_by_department/ADM.xlsx
-INFO:root:0 papersources from input/printers_by_department/ADM.xlsx updated with cariform=cariform, twosided=False, inspect=False, workspace=workspace
-WARNING:root:0 papersources from input/printers_by_department/ADM.xlsx updated with paperformat=paperformat [CONFLICT], cariform=cariform, twosided=False, inspect=False, workspace=workspace
-WARNING:root:Workspace ID 2.0, LE-ADM-Arbeitsbereich_1, Location: AMA, Department: ADM users 49 has either no users or no wcps or both
+INFO:root:9 workspaces from input/printers_by_department/TEC.xlsx sheet Arbeitsplatz added
+INFO:root:1305 users added to workspaces from input/printers_by_department/TEC.xlsx
+INFO:root:13 papersources from input/printers_by_department/TEC.xlsx updated with cariform=cariform, twosided=False, inspect=False, workspace=workspace
+WARNING:root:1 papersources from input/printers_by_department/TEC.xlsx updated with paperformat=paperformat [CONFLICT], cariform=cariform, twosided=False, inspect=False, workspace=workspace
+WARNING:root:PSTVA9679 has S4 : A5 in input/printers_by_department/TEC.xlsx but different value in printerlist of support

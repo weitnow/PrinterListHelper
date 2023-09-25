@@ -2,37 +2,49 @@ import os.path
 
 from Outputmanager import Outputmanager
 from Printermanager import Printermanager
+from copy import deepcopy
 
 ###############################################################################
 #                                     PARAMETER                               #
 ###############################################################################
 LOAD_PRINTER_LIST_SUPPORT = True
 LOAD_PRINTER_LIST_INSPECT = True
-################################
+
 LOAD_PRINTER_LIST_DEP_AAU = False
-LOAD_PRINTER_LIST_DEP_ADM = True
+LOAD_PRINTER_LIST_DEP_ADM = False
 LOAD_PRINTER_LIST_DEP_DIS = False
-LOAD_PRINTER_LIST_DEP_FIN = False       #FIN noch auf False
-LOAD_PRINTER_LIST_DEP_TEC = False
+LOAD_PRINTER_LIST_DEP_FIN = False
+LOAD_PRINTER_LIST_DEP_TEC = True
 LOAD_PRINTER_LIST_DEP_ZUL = False
 
 LOAD_USER_TO_WINDOWSPRINTER_FROM_LIST_DEPS = True
 LOAD_PC_TO_DEFAULT_WINDOWSPRINTER_FROM_LIST_DEPS = True
-################################
-#PRINTERLIST SERDAR
-SAVE_PICKLE_SERDAR = False
-SAVE_PICKLE_SERDAR_NAME = "06082023"
-LOAD_PICKLE_SERDAR = False
-LOAD_PICKLE_SERDAR_NAME = "06082023"
 
+ADD_WINDOWSUSER_FROM_WCPS_TO_PRINTERMANAGER_PRINTERS = True
 
 ################################
-PRINT_TO_CONSOLE = False
+SAVE_PICKLE = False
+SAVE_PICKLE_NAME = "09082023"
+LOAD_PICKLE = False
+LOAD_PICKLE_NAME = "09082023"
+################################
 
+# Komplette Druckerliste, Alle Drucker, Erfassung in CARi und auf Druckerserver
 GENERATE_OUTPUT_EXCELFILE_ROBOT_CARI_AND_PRINTERSERVER_ALL_PRINTER = True
+# -> robot_cari_printerserver_all_printers
+
+# Alle Drucker, Erfassung auf Druckerserver
 GENERATE_OUTPUT_EXCELFILE_ROBOT_PRINTERSERVER_ALL_PRINTER = True
+# -> robot_printerserver_all_printers
+
+# Nur CARi-Drucker, Erfassung in CARi
 GENERATE_OUTPUT_EXCELFILE_ROBOT_CARI_ONLY_IF_CARI_RELEVANT_PRINTER = True
+# -> robot_cari_only_cari_relevant
+
+# Nur CARi-Drucker, Erfassung auf Druckerserver
 GENERATE_OUTPUT_EXCELFILE_ROBOT_PRINTERSERVER_ONLY_IF_CARI_RELEVANT_PRINTER = True
+# -> robot_printerserver_only_cari_relevant
+
 GENERATE_OUTPUT_EXCELFILE_SERDAR = True
 GENERATE_OUTPUT_EXCELFILE_GILLES = True
 
@@ -40,7 +52,7 @@ SET_TWOSIDED_FROM_NONE_TO_TRUE = True
 SET_INSPECT_FROM_NONE_TO_FALSE = True
 SET_ACTIVE_FROM_NONE_TO_1 = True
 
-PRINTER_LIST_SUPPORT = "input/all_printers_list_of_support/Druckerliste_Support_20062023.xlsx"
+PRINTER_LIST_SUPPORT = "input/all_printers_list_of_support/Druckerliste_Support.xlsx"
 PRINTER_LIST_INSPECT = "input/printers_inspect/Druckerliste_Inspect_20062023.xlsx"
 PRINTER_LIST_AAU = "input/printers_by_department/AAU.xlsx"
 PRINTER_LIST_ADM = "input/printers_by_department/ADM.xlsx"
@@ -117,28 +129,33 @@ if SET_ACTIVE_FROM_NONE_TO_1:
 # add wcps to the matching papersources of the printerlist in printermanager
 printermanager.add_wcps_to_matching_papersource_of_printers()
 
-###############################################################################
-#                                     PLAYGROUND                              #
-###############################################################################
-
-
-
-###############################################################################
-#                                     PRINT TO CONSOLE                        #
-###############################################################################
-
-if PRINT_TO_CONSOLE:
-    for printer in printermanager.printers:
-        print(printer)
+# add cari-windows-users  to the each printer. if for example printer pstva1111-s1 has b126kec and pstva1111-s2 has b126swm then both users are added to pstva1111. the same is true
+# for computer !!!! WARNING, this method can only be used AFTER add_wcps_to_matching_papersource_of_printers() has been executed because it takes the data from there!
+if ADD_WINDOWSUSER_FROM_WCPS_TO_PRINTERMANAGER_PRINTERS:
+    printermanager.add_cari_users_to_printer()
 
 ###############################################################################
 #                                     OUTPUT                                  #
 ###############################################################################
-
-# WARNING, every change to printermanager.printers after instantiating outputmanager will not be transfered to output
-# The reason for that is, that outputmanager makes an independent copy of the list printermanager.printers after being instantiated.
-
 outputmanager = Outputmanager(printermanager)
+
+### PICKLE ###
+if SAVE_PICKLE:
+    outputmanager.pickle_save(printermanager.printers, "printermanager-printers", SAVE_PICKLE_NAME)
+
+if LOAD_PICKLE:
+    loaded_printers_from_picklefile = outputmanager.pickle_load("printermanager-printers", LOAD_PICKLE_NAME)
+    printermanager.printers_from_loaded_pickle = deepcopy(loaded_printers_from_picklefile)
+
+    #compare the current printerlist from printermanger.printers with the loaded printermanager.printers from pickle
+    #if the printer is identical with the printer in the other list (true, [printer]) is returned. if it is not identical then (false, [printer1, printer2, printerdelta])is returned
+    loaded_printers_from_picklefile = printermanager.compare_two_printerlists_and_return_difference(loaded_printers_from_picklefile, printermanager.printers)
+    for item in loaded_printers_from_picklefile:
+        if item[0] == False:
+            #if printer is not identical we get (False, [printer1, printer2, printerdelta])
+            printermanager.printers_which_have_changed_compared_with_loaded_pickle.append(item[1][1])
+            printermanager.printers_which_have_changed_compared_with_loaded_pickle_only_changed_attributes.append(item[1][2])
+
 list_with_header_names = ["Standort", "Arbeitsplatz (Büro)", "Printserver Link", "Druckername", "Schacht Name", "Druckername Printerserver", "IP Drucker (nur zur Information für Vergleich QIP)", "Portname", "Formular CARI / Prüfbahn / Parkplatz", "Format des Formulars", "2-sided", "Inspect", "Zuständige Fachabteilung", "Aktiv", "Drucker Modell", "Drucker Treiber", "Bemerkung"]
 
 ###############################################################
@@ -184,22 +201,38 @@ title_of_worksheet = "printers"
 list_with_header_names = ["printername", "paperslots", "users", "users_to_windowsprinter", "users_combined", "pcs_to_default_windowsprinter"]
 
 if GENERATE_OUTPUT_EXCELFILE_SERDAR:
-    printerlist = outputmanager.return_deep_copy_of_printermanger_printers()
-    list_of_dicts = []
-    for printer in printerlist:
-        #iterate through a copy of printermanger.printers and call for each printer a method which gets back a dict like {printername = pstva1769, paperslots = [s1, s2, s3], workspace = [AL-ZUL-PEZ1, AL_ZUL-PEZ2...], users = [B126SMP, B126IMD...]}
-        list_of_dicts.append(printer.get_users_paperslots_workspaces(printermanager))
+    if LOAD_PICKLE:
 
-    if SAVE_PICKLE_SERDAR:
-        outputmanager.pickle_save(list_of_dicts, 'serdar', SAVE_PICKLE_SERDAR_NAME)
+       outputmanager.create_output_excel_list_for_serdar_new_version(path_with_filename=path_with_filename,
+                                                                     title_of_worksheet="PRINTERS",
+                                                                     list_with_header_names=list_with_header_names,
+                                                                     printer_list=outputmanager.return_deep_copy_of_printermanger_printers(),
+                                                                     delete_previous_file=True)
+       outputmanager.create_output_excel_list_for_serdar_new_version(path_with_filename=path_with_filename,
+                                                                     title_of_worksheet=f"PICKLE_{LOAD_PICKLE_NAME}",
+                                                                     list_with_header_names=list_with_header_names,
+                                                                     printer_list=printermanager.printers_from_loaded_pickle,
+                                                                     delete_previous_file=False)
+       outputmanager.create_output_excel_list_for_serdar_new_version(path_with_filename=path_with_filename,
+                                                                     title_of_worksheet="ONLY_CHANGED_PRINTERS",
+                                                                     list_with_header_names=list_with_header_names,
+                                                                     printer_list=printermanager.printers_which_have_changed_compared_with_loaded_pickle,
+                                                                     delete_previous_file=False)
+       outputmanager.create_output_excel_list_for_serdar_new_version(path_with_filename=path_with_filename,
+                                                                     title_of_worksheet="PRINTERS_PICKLE_DELTA",
+                                                                     list_with_header_names=list_with_header_names,
+                                                                     printer_list=printermanager.printers_which_have_changed_compared_with_loaded_pickle_only_changed_attributes,
+                                                                     delete_previous_file=False)
 
-    if LOAD_PICKLE_SERDAR:
-        pickle_printer_list = outputmanager.pickle_load('serdar', LOAD_PICKLE_SERDAR_NAME)
     else:
-        pickle_printer_list = None
+        printerlist = outputmanager.return_deep_copy_of_printermanger_printers()
+        list_of_dicts = []
+        for printer in printerlist:
+            #iterate through a copy of printermanger.printers and call for each printer a method which gets back a dict like {printername = pstva1769, paperslots = [s1, s2, s3], workspace = [AL-ZUL-PEZ1, AL_ZUL-PEZ2...], users = [B126SMP, B126IMD...]}
+            list_of_dicts.append(printer.get_users_paperslots_workspaces(printermanager))
 
+        outputmanager.create_output_excel_list_for_serdar(path_with_filename=path_with_filename, title_of_worksheet=title_of_worksheet, list_with_header_names=list_with_header_names, printer_list=list_of_dicts)
 
-    outputmanager.create_output_excel_list_for_serdar(path_with_filename=path_with_filename, title_of_worksheet=title_of_worksheet, list_with_header_names=list_with_header_names, printer_list=list_of_dicts, pickle_printer_list=pickle_printer_list)
 ###############################################################
 
 path_with_filename = "output/bureau_lieugestion_list_gilles"
@@ -241,4 +274,5 @@ if GENERATE_OUTPUT_EXCELFILE_GILLES:
 ###############################################################################
 #                                     OUTPUT-DEBUG                            #
 ###############################################################################
+
 print()

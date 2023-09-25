@@ -4,6 +4,7 @@ from Printermanager import Printermanager
 import copy
 import pickle
 import platform
+import ast
 
 class Outputmanager:
 
@@ -143,19 +144,81 @@ class Outputmanager:
                 worksheet.cell(row=i + 2, column=j + 1, value=value)
         workbook.save(file_path)
 
-    def create_output_excel_list_for_serdar(self, path_with_filename: str, title_of_worksheet: str, list_with_header_names: list, printer_list: list, pickle_printer_list = None):
+    def create_output_excel_list_for_serdar_new_version(self, path_with_filename: str, title_of_worksheet: str, list_with_header_names: list, printer_list: list, delete_previous_file = True):
         file_path = f'{path_with_filename}.xlsx'
 
         # check if the file exists and if it does delete it
-        if os.path.exists(file_path):
-            os.remove(file_path)
+        if delete_previous_file:
+            if os.path.exists(file_path):
+                os.remove(file_path)
+            workbook = openpyxl.Workbook()
+            worksheet = workbook.active
+            worksheet.title = title_of_worksheet
+        else:
+            workbook = openpyxl.load_workbook(file_path)
 
-        workbook = openpyxl.Workbook()
-        worksheet = workbook.active
-        worksheet.title = title_of_worksheet
+        if title_of_worksheet in workbook.sheetnames:  # check if the worksheets exists
+            worksheet = workbook[title_of_worksheet]  # access the existing worksheet
+        else:
+            worksheet = workbook.create_sheet(title_of_worksheet)  # create a new worksheet
 
-        if pickle_printer_list:
-            print(pickle_printer_list)
+        # get the instance variable names and write them as headers
+        # list_with_header_names = ["printername", "paperslots", "users", "users_to_windowsprinter", "users_combined", "pcs_to_default_windowsprinter"]
+        for i, variable in enumerate(list_with_header_names):
+            worksheet.cell(row=1, column=i + 1, value=variable)
+
+        #add printername in column 1
+        for i, printer in enumerate(printer_list):
+            # add printername in column 1
+            worksheet.cell(row=i + 2, column=1, value = printer.printername)
+            # add paperslots in column 2
+            if (hasattr(printer, "printerslots_for_pickle")):
+                value_printerslots = str(printer.printerslots_for_pickle)
+                parsed_set = ast.literal_eval(value_printerslots)
+                value_printerslots = ','.join(parsed_set)
+            else:
+                value_printerslots = ""
+            worksheet.cell(row=i + 2, column=2, value= value_printerslots)
+            # add users_for_cari in column 3
+            value_cari = str(printer.user_to_windowsprinter_for_cari)
+            parsed_set = ast.literal_eval(value_cari)
+            value_cari = ','.join(parsed_set)
+            worksheet.cell(row=i + 2, column=3, value=value_cari)
+            # add users_windowsprinters in column 4
+            value_user = str(printer.user_to_windowsprinter)
+            parsed_set = ast.literal_eval(value_user)
+            value_user = ','.join(parsed_set)
+            worksheet.cell(row=i + 2, column=4, value=value_user)
+            # add users_combined in column 5
+            value = value_cari + "," + value_user
+            value = "" if value == "," else value
+            worksheet.cell(row=i + 2, column=5, value=value)
+            # add pc to windowsprinter in 6
+            value = str(printer.pc_to_default_windowsprinter)
+            parsed_set = ast.literal_eval(value)
+            value = ','.join(parsed_set)
+            worksheet.cell(row=i + 2, column=6, value=value)
+
+        workbook.save(file_path)
+
+    def create_output_excel_list_for_serdar(self, path_with_filename: str, title_of_worksheet: str, list_with_header_names: list, printer_list: list, delete_previous_file = True):
+        file_path = f'{path_with_filename}.xlsx'
+
+        # check if the file exists and if it does delete it
+        if delete_previous_file:
+            if os.path.exists(file_path):
+                os.remove(file_path)
+            workbook = openpyxl.Workbook()
+            worksheet = workbook.active
+            worksheet.title = title_of_worksheet
+        else:
+            workbook = openpyxl.load_workbook(file_path)
+
+        if title_of_worksheet in workbook.sheetnames:  # check if the worksheets exists
+            worksheet = workbook[title_of_worksheet]  # access the existing worksheet
+        else:
+            worksheet = workbook.create_sheet(title_of_worksheet)  # create a new worksheet
+
 
         # get the instance variable names and write them as headers
         # list_with_header_names = ["printername", "paperslots", "users", "users_to_windowsprinter", "users_combined", "pcs_to_default_windowsprinter"]

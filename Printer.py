@@ -12,16 +12,27 @@ DRIVERMAPPING = {
 class Printer:
 
     #init method will be used by printerlist of support
-    def __init__(self, standort, buero, printername, ip, M0, S1, S2, S3, S4, S5, model):
+    def __init__(self, standort, buero, printername, ip, M0, S1, S2, S3, S4, S5, model, user_to_windowsprinter: set = None, user_to_windowsprinter_for_cari: set = None, pc_to_default_windowsprinter: set = None):
         self.standort = standort
         self.buero = buero
         self.printername = printername
         self.ip = ip
         self.papersources = []
         self.user_to_windowsprinter = set() #contains all users as a string, which want this printer available on windows but do not use it for cari
+        self.user_to_windowsprinter_for_cari = set() #contains all users as a string, which need this printer for print out from cari
         self.pc_to_default_windowsprinter = set() #contains all pc as a string which wants this printer as their default windowsprinter
         self.model = model
         self.driver = None
+        self.papersource_for_pickle = [M0, S1, S2, S3, S4, S5] #this is used if comparing files by pickle if the delta-printer is created. it contains a list like [nan, 'A4', 'A5', nan, nan, nan], which means S1 and S2 are present.
+        self.printerslots_for_pickle = []
+
+        #if provided add the this sets to the instance of the class
+        if user_to_windowsprinter:
+            self.user_to_windowsprinter = user_to_windowsprinter
+        if user_to_windowsprinter_for_cari:
+            self.user_to_windowsprinter_for_cari = user_to_windowsprinter_for_cari
+        if pc_to_default_windowsprinter:
+            self.pc_to_default_windowsprinter = pc_to_default_windowsprinter
 
         #setting driver according to mapping
         for key in DRIVERMAPPING.keys():
@@ -42,6 +53,22 @@ class Printer:
         if isinstance(S5, str):
             self.papersources.append(Papersource(printerslot="S5", paperformat=S5))
 
+        #generating printerslots
+        for i, _papersource in enumerate(self.papersource_for_pickle):
+            if isinstance(_papersource, str):
+                if i == 0:
+                    self.printerslots_for_pickle.append("M0")
+                if i == 1:
+                    self.printerslots_for_pickle.append("S1")
+                if i == 2:
+                    self.printerslots_for_pickle.append("S2")
+                if i == 3:
+                    self.printerslots_for_pickle.append("S3")
+                if i == 4:
+                    self.printerslots_for_pickle.append("S4")
+                if i == 5:
+                    self.printerslots_for_pickle.append("S5")
+
     def __str__(self):
         outputstring = f"{self.printername}|Standort:{self.standort}|Buero:{self.buero}|Model:{self.model}|Driver:{self.driver}|IP:{self.ip}|"
 
@@ -55,7 +82,10 @@ class Printer:
     def add_windowsuser(self, username: str):
         """adds a user to the user to windowsprinter list of this printer """
         self.user_to_windowsprinter.add(username)
-        print()
+
+    def add_windowsuser_for_cari(self, username: str):
+        """adds a user to the user to the windowsprinter list used by cari"""
+        self.user_to_windowsprinter_for_cari.add(username)
 
     def add_pc(self, pcname: str):
         """adds a pc to the pc to default windowsprinter list of this printer"""
@@ -194,6 +224,7 @@ class Printer:
                 raise Exception(f"{printername} has no printerslot {printerslot}")
         else:
             raise Exception(f"add_wcps: received {printername} as printername but self.printername is {self.printername}")
+
 
 
 
