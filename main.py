@@ -10,17 +10,21 @@ from copy import deepcopy
 LOAD_PRINTER_LIST_SUPPORT = True
 LOAD_PRINTER_LIST_INSPECT = True
 
-LOAD_PRINTER_LIST_DEP_AAU = False
-LOAD_PRINTER_LIST_DEP_ADM = False
-LOAD_PRINTER_LIST_DEP_DIS = False
-LOAD_PRINTER_LIST_DEP_FIN = False
-LOAD_PRINTER_LIST_DEP_TEC = False
+LOAD_PRINTER_LIST_DEP_AAU = True
+LOAD_PRINTER_LIST_DEP_ADM = True
+LOAD_PRINTER_LIST_DEP_DIS = True
+LOAD_PRINTER_LIST_DEP_DIV = True
+LOAD_PRINTER_LIST_DEP_FIN = True
+LOAD_PRINTER_LIST_DEP_TEC = True
 LOAD_PRINTER_LIST_DEP_ZUL = True
+LOAD_PRINTER_LIST_DEP_SCH = True
 
 LOAD_USER_TO_WINDOWSPRINTER_FROM_LIST_DEPS = True
 LOAD_PC_TO_DEFAULT_WINDOWSPRINTER_FROM_LIST_DEPS = True
 
 ADD_WINDOWSUSER_FROM_WCPS_TO_PRINTERMANAGER_PRINTERS = True
+
+GENERATE_STATISTICS = True
 
 ################################
 SAVE_PICKLE = False
@@ -57,9 +61,11 @@ PRINTER_LIST_INSPECT = "input/printers_inspect/Druckerliste_Inspect_20062023.xls
 PRINTER_LIST_AAU = "input/printers_by_department/AAU.xlsx"
 PRINTER_LIST_ADM = "input/printers_by_department/ADM.xlsx"
 PRINTER_LIST_DIS = "input/printers_by_department/DIS.xlsx"
+PRINTER_LIST_DIV = "input/printers_by_department/DIV.xlsx"
 PRINTER_LIST_FIN = "input/printers_by_department/FIN.xlsx"
 PRINTER_LIST_TEC = "input/printers_by_department/TEC.xlsx"
 PRINTER_LIST_ZUL = "input/printers_by_department/ZUL.xlsx"
+PRINTER_LIST_SCH = "input/printers_by_department/SCH.xlsx"
 
 ###############################################################################
 #                                     ROBOT-OPTIONS                           #
@@ -94,6 +100,10 @@ if LOAD_PRINTER_LIST_DEP_DIS:
     #load the printerlist of department DIS
     printermanager.load_printerlist_of_department(PRINTER_LIST_DIS, "dis", LOAD_USER_TO_WINDOWSPRINTER_FROM_LIST_DEPS, LOAD_PC_TO_DEFAULT_WINDOWSPRINTER_FROM_LIST_DEPS)
 
+if LOAD_PRINTER_LIST_DEP_DIV:
+    #load the printerlist of department DIVers
+    printermanager.load_printerlist_of_department(PRINTER_LIST_DIV, "div", LOAD_USER_TO_WINDOWSPRINTER_FROM_LIST_DEPS, LOAD_PC_TO_DEFAULT_WINDOWSPRINTER_FROM_LIST_DEPS)
+
 if LOAD_PRINTER_LIST_DEP_FIN:
     #load the printerlist of department FIN
     printermanager.load_printerlist_of_department(PRINTER_LIST_FIN, "fin", LOAD_USER_TO_WINDOWSPRINTER_FROM_LIST_DEPS, LOAD_PC_TO_DEFAULT_WINDOWSPRINTER_FROM_LIST_DEPS)
@@ -105,6 +115,11 @@ if LOAD_PRINTER_LIST_DEP_TEC:
 if LOAD_PRINTER_LIST_DEP_ZUL:
     #load the printerlist of department ZUL
     printermanager.load_printerlist_of_department(PRINTER_LIST_ZUL, "zul", LOAD_USER_TO_WINDOWSPRINTER_FROM_LIST_DEPS, LOAD_PC_TO_DEFAULT_WINDOWSPRINTER_FROM_LIST_DEPS)
+
+if LOAD_PRINTER_LIST_DEP_SCH:
+    #load the printerlist of department ZUL
+    printermanager.load_printerlist_of_department(PRINTER_LIST_SCH, "sch", LOAD_USER_TO_WINDOWSPRINTER_FROM_LIST_DEPS, LOAD_PC_TO_DEFAULT_WINDOWSPRINTER_FROM_LIST_DEPS)
+
 print("---------------------------------------------------------------------")
 
 ###############################################################################
@@ -235,6 +250,27 @@ if GENERATE_OUTPUT_EXCELFILE_SERDAR:
 
 ###############################################################
 
+path_with_filename = "output/statistic/statistic.xlsx"
+title_of_worksheet = "statistic"
+list_with_header_names = ["username", "number_cari_workspaces", "number_printers", "number_printerslots"]
+
+if GENERATE_STATISTICS:
+    printerlist = outputmanager.return_deep_copy_of_printermanger_printers()
+    list_of_dicts = []
+    for printer in printerlist:
+        # iterate through a copy of printermanger.printers and call for each printer a method which gets back a dict like {printername = pstva1769, paperslots = [s1, s2, s3], workspace = [AL-ZUL-PEZ1, AL_ZUL-PEZ2...], users = [B126SMP, B126IMD...]}
+        list_of_dicts.append(printer.get_users_paperslots_workspaces(printermanager))
+
+    outputmanager.create_output_excel_statistic(path_with_filename=path_with_filename,
+                                                      title_of_worksheet=title_of_worksheet,
+                                                      list_with_header_names=list_with_header_names,
+                                                      printer_list=list_of_dicts,
+                                                        delete_previous_file=True,
+                                                       workspace_list=printermanager.workspaces)
+
+
+###############################################################
+
 path_with_filename = "output/bureau_lieugestion_list_gilles"
 title_of_worksheet = None       #this will be defined in the code block below
 list_with_header_names = None   #this will be defined in the code block below
@@ -271,8 +307,19 @@ if GENERATE_OUTPUT_EXCELFILE_GILLES:
                                                       list_with_header_names=list_with_header_names,
                                                       printermanager=printermanager)
 
+
+
+
 ###############################################################################
 #                                     OUTPUT-DEBUG                            #
 ###############################################################################
+
+# prints the last workspace-id - in case someone wants to add a new workspace, he knows with wich id to continue in the excelsheet
+
+# Get the workspace with the highest id
+workspace_with_highest_id = max(printermanager.workspaces, key=lambda x: x.id)
+print(f"Last used ID is: {workspace_with_highest_id} ")
+print(f"Next ID for new Workspace is: {len(printermanager.workspaces)+1}")
+
 
 print()

@@ -1,10 +1,13 @@
 import os
 import openpyxl
+
+import Workspace
 from Printermanager import Printermanager
 import copy
 import pickle
 import platform
 import ast
+from User import User
 
 class Outputmanager:
 
@@ -239,6 +242,65 @@ class Outputmanager:
                 worksheet.cell(row=i + 2, column=j + 1, value=value)
         workbook.save(file_path)
 
+
+    def create_output_excel_statistic(self, path_with_filename: str, title_of_worksheet: str, list_with_header_names: list, printer_list: list, delete_previous_file, workspace_list: Workspace):
+        file_path = f'{path_with_filename}.xlsx'
+
+        # check if the file exists and if it does delete it
+        if delete_previous_file:
+            if os.path.exists(file_path):
+                os.remove(file_path)
+            workbook = openpyxl.Workbook()
+            worksheet = workbook.active
+            worksheet.title = title_of_worksheet
+        else:
+            workbook = openpyxl.load_workbook(file_path)
+
+        if title_of_worksheet in workbook.sheetnames:  # check if the worksheets exists
+            worksheet = workbook[title_of_worksheet]  # access the existing worksheet
+        else:
+            worksheet = workbook.create_sheet(title_of_worksheet)  # create a new worksheet
+
+
+
+        list_of_all_users = set()
+
+        for printer in printer_list:
+            for user in printer["users"]:
+                list_of_all_users.add(user)
+
+        list_of_userobjects = []
+        for username in list_of_all_users:
+            list_of_userobjects.append(User(username))
+
+        for workspace in workspace_list:
+            for user in workspace.users:
+                for userobj in list_of_userobjects:
+                    if userobj.username == user:
+                        userobj.count_cari_workspace()
+
+        for printer in printer_list:
+            for user in printer["users"]:
+                for userobj in list_of_userobjects:
+                    if userobj.username == user:
+                        userobj.count_printer()
+                        for paperslot in printer["paperslots"]:
+                            userobj.count_printerslot()
+        #we have now a list of users in userobjects which have the numbers of workspaces, the numbers of printers and the numbers of paperslots
+
+        # get the instance variable names and write them as headers
+        # list_with_header_names = ["username", "number_cari_workspaces", "number_printers", "number_printerslots"]
+        for i, variable in enumerate(list_with_header_names):
+            worksheet.cell(row=1, column=i + 1, value=variable)
+
+        for row, obj in enumerate(list_of_userobjects, start=2):
+            for col, header in enumerate(list_with_header_names, start=1):
+                value = getattr(obj, header)
+                worksheet.cell(row=row, column=col, value=value)
+
+
+        workbook.save(file_path)
+
     def create_output_excel_list_for_gilles(self, path_with_filename: str, title_of_worksheet: str, list_with_header_names: list, printermanager: Printermanager):
         file_path = f'{path_with_filename}.xlsx'
 
@@ -263,7 +325,8 @@ class Outputmanager:
             "Hinwil" : 4,
             "Oberrieden" : 5,
             "Bülach" : 6,
-            "Bassersdorf" : 7
+            "Bassersdorf" : 7,
+            "Tiefenbrunnen" : 8
         }
 
         mapping_locationid_to_lieugestion = {
@@ -273,7 +336,8 @@ class Outputmanager:
             4 : "Hinwil",
             5 : "Oberrieden",
             6 : "Bülach",
-            7 : "Bassersdorf"
+            7 : "Bassersdorf",
+            8 : "Tiefenbrunnen"
         }
 
         # get the instance variable names and write them as headers
@@ -311,7 +375,7 @@ class Outputmanager:
             elif title_of_worksheet == "BureauUsers":
                 bureau_id = workspace.id
                 bureau_libelle = workspace.name
-                users = str(workspace.users)
+                users = str(workspace.users).lower() #write username in lowercase .lower()
                 worksheet.cell(row=row, column=1, value=bureau_id)
                 worksheet.cell(row=row, column=2, value=bureau_libelle)
                 worksheet.cell(row=row, column=3, value=users)

@@ -1,59 +1,74 @@
-WARNING:root:Warning, IP 0.0.0.0 is defined more then once in input/all_printers_list_of_support/Druckerliste_Support.xlsx
-WARNING:root:Warning, IP 0.0.0.0 is defined more then once in input/all_printers_list_of_support/Druckerliste_Support.xlsx
-WARNING:root:Warning, IP 0.0.0.0 is defined more then once in input/all_printers_list_of_support/Druckerliste_Support.xlsx
-WARNING:root:Warning, IP 0.0.0.0 is defined more then once in input/all_printers_list_of_support/Druckerliste_Support.xlsx
-INFO:root:364 printers from input/all_printers_list_of_support/Druckerliste_Support.xlsx added
-WARNING:root:PSTVA5670 has S3:A5 in input/printers_inspect/Druckerliste_Inspect_20062023.xlsx but different value in printerlist of support
+INFO:root:360 printers from input/all_printers_list_of_support/Druckerliste_Support.xlsx added
 WARNING:root:PSTVA7601 has S3:A5 in input/printers_inspect/Druckerliste_Inspect_20062023.xlsx but different value in printerlist of support
+WARNING:root:PSTVA5670 has S3:A5 in input/printers_inspect/Druckerliste_Inspect_20062023.xlsx but different value in printerlist of support
 WARNING:root:PSTVA7601 has S2:A5 in input/printers_inspect/Druckerliste_Inspect_20062023.xlsx but different value in printerlist of support
 WARNING:root:PSTVA5670 has S1:A4 in input/printers_inspect/Druckerliste_Inspect_20062023.xlsx but different value in printerlist of support
 INFO:root:29 printers has been updated from input/printers_inspect/Druckerliste_Inspect_20062023.xlsx
-INFO:root:137 workspaces from input/printers_by_department/ZUL.xlsx sheet Arbeitsplatz added
-INFO:root:15966 users added to workspaces from input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA9735_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA9735_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA9770_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA9770_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA9733_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA9733_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA9732_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA9732_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA9731_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA9731_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA9730_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA9730_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA9771_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA9771_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA9772_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA9772_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA6680_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA6680_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA6730_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA6730_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA6731_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA6731_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA6732_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA6732_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA6733_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA6733_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA6770_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA6770_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA6771_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA6771_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA8680_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA8680_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA8730_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA8730_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA8731_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA8731_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA8732_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA8732_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA8733_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA8733_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA8771_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA8771_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA8770_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-WARNING:root:Warning printerslot PSTVA8770_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
+INFO:root:1 workspaces from input/printers_by_department/AAU.xlsx sheet Arbeitsplatz added
+INFO:root:12 users added to workspaces from input/printers_by_department/AAU.xlsx
+INFO:root:1 papersources from input/printers_by_department/AAU.xlsx updated with cariform=cariform, twosided=False, inspect=False, workspace=workspace
+WARNING:root:0 papersources from input/printers_by_department/AAU.xlsx updated with paperformat=paperformat [CONFLICT], cariform=cariform, twosided=False, inspect=False, workspace=workspace
+INFO:root:1 workspaces from input/printers_by_department/ADM.xlsx sheet Arbeitsplatz added
+INFO:root:48 users added to workspaces from input/printers_by_department/ADM.xlsx
+INFO:root:0 papersources from input/printers_by_department/ADM.xlsx updated with cariform=cariform, twosided=False, inspect=False, workspace=workspace
+WARNING:root:0 papersources from input/printers_by_department/ADM.xlsx updated with paperformat=paperformat [CONFLICT], cariform=cariform, twosided=False, inspect=False, workspace=workspace
+WARNING:root:Workspace ID 2.0, LE-ADM-Arbeitsbereich_1, Location: AMA, Department: ADM users 48 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+INFO:root:2 workspaces from input/printers_by_department/DIS.xlsx sheet Arbeitsplatz added
+INFO:root:36 users added to workspaces from input/printers_by_department/DIS.xlsx
+INFO:root:2 papersources from input/printers_by_department/DIS.xlsx updated with cariform=cariform, twosided=False, inspect=False, workspace=workspace
+WARNING:root:0 papersources from input/printers_by_department/DIS.xlsx updated with paperformat=paperformat [CONFLICT], cariform=cariform, twosided=False, inspect=False, workspace=workspace
+WARNING:root:Workspace ID 2.0, LE-ADM-Arbeitsbereich_1, Location: AMA, Department: ADM users 48 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+INFO:root:9 workspaces from input/printers_by_department/DIV.xlsx sheet Arbeitsplatz added
+INFO:root:120 users added to workspaces from input/printers_by_department/DIV.xlsx
+WARNING:root:Warning printerslot PSTVA1139_S3 has contradicting values in excel input/printers_by_department/DIV.xlsx
+INFO:root:2 papersources from input/printers_by_department/DIV.xlsx updated with cariform=cariform, twosided=False, inspect=False, workspace=workspace
+WARNING:root:2 papersources from input/printers_by_department/DIV.xlsx updated with paperformat=paperformat [CONFLICT], cariform=cariform, twosided=False, inspect=False, workspace=workspace
+WARNING:root:PSTVA1139 has S3 : A5 in input/printers_by_department/DIV.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1139 has M0 : A5 in input/printers_by_department/DIV.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1139 has S3 : A4 in input/printers_by_department/DIV.xlsx but different value in printerlist of support
+WARNING:root:Workspace ID 2.0, LE-ADM-Arbeitsbereich_1, Location: AMA, Department: ADM users 48 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 160, AL-DIV-Albisgüetli, Location: Albisgüetli, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 161, WI-DIV-Winterthur, Location: Winterthur, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 162, RE-DIV-Regensdorf, Location: Regensdorf, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 163, HI-DIV-Hinwil, Location: Hinwil, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 164, OB-DIV-Oberrieden, Location: Oberrieden, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 165, BU-DIV-Bülach, Location: Bülach, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 166, GT-DIV-Bassersdorf, Location: Bassersdorf, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 167, AL-DIV-Schulung, Location: Albisgüetli, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 169, AL-IT-Test, Location: Albisgüetli, Department: IT wcps 22 has no users
+INFO:root:1 workspaces from input/printers_by_department/FIN.xlsx sheet Arbeitsplatz added
+INFO:root:25 users added to workspaces from input/printers_by_department/FIN.xlsx
+INFO:root:0 papersources from input/printers_by_department/FIN.xlsx updated with cariform=cariform, twosided=False, inspect=False, workspace=workspace
+WARNING:root:0 papersources from input/printers_by_department/FIN.xlsx updated with paperformat=paperformat [CONFLICT], cariform=cariform, twosided=False, inspect=False, workspace=workspace
+WARNING:root:Workspace ID 2.0, LE-ADM-Arbeitsbereich_1, Location: AMA, Department: ADM users 48 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 160, AL-DIV-Albisgüetli, Location: Albisgüetli, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 161, WI-DIV-Winterthur, Location: Winterthur, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 162, RE-DIV-Regensdorf, Location: Regensdorf, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 163, HI-DIV-Hinwil, Location: Hinwil, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 164, OB-DIV-Oberrieden, Location: Oberrieden, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 165, BU-DIV-Bülach, Location: Bülach, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 166, GT-DIV-Bassersdorf, Location: Bassersdorf, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 167, AL-DIV-Schulung, Location: Albisgüetli, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 169, AL-IT-Test, Location: Albisgüetli, Department: IT wcps 22 has no users
+WARNING:root:Workspace ID 5.0, AL-FIN-ReWe, Location: Albisgüetli, Department: FIN users 25 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+INFO:root:9 workspaces from input/printers_by_department/TEC.xlsx sheet Arbeitsplatz added
+INFO:root:1215 users added to workspaces from input/printers_by_department/TEC.xlsx
+INFO:root:13 papersources from input/printers_by_department/TEC.xlsx updated with cariform=cariform, twosided=False, inspect=False, workspace=workspace
+WARNING:root:1 papersources from input/printers_by_department/TEC.xlsx updated with paperformat=paperformat [CONFLICT], cariform=cariform, twosided=False, inspect=False, workspace=workspace
+WARNING:root:PSTVA9679 has S4 : A5 in input/printers_by_department/TEC.xlsx but different value in printerlist of support
+WARNING:root:Workspace ID 2.0, LE-ADM-Arbeitsbereich_1, Location: AMA, Department: ADM users 48 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 160, AL-DIV-Albisgüetli, Location: Albisgüetli, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 161, WI-DIV-Winterthur, Location: Winterthur, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 162, RE-DIV-Regensdorf, Location: Regensdorf, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 163, HI-DIV-Hinwil, Location: Hinwil, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 164, OB-DIV-Oberrieden, Location: Oberrieden, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 165, BU-DIV-Bülach, Location: Bülach, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 166, GT-DIV-Bassersdorf, Location: Bassersdorf, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 167, AL-DIV-Schulung, Location: Albisgüetli, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 169, AL-IT-Test, Location: Albisgüetli, Department: IT wcps 22 has no users
+WARNING:root:Workspace ID 5.0, AL-FIN-ReWe, Location: Albisgüetli, Department: FIN users 25 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+INFO:root:138 workspaces from input/printers_by_department/ZUL.xlsx sheet Arbeitsplatz added
+INFO:root:17176 users added to workspaces from input/printers_by_department/ZUL.xlsx
 WARNING:root:Warning printerslot PSTVA2772_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
 WARNING:root:Warning printerslot PSTVA2772_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
 WARNING:root:Warning printerslot PSTVA2772_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
@@ -62,152 +77,146 @@ WARNING:root:Warning printerslot PSTVA2772_M0 has contradicting values in excel 
 WARNING:root:Warning printerslot PSTVA2772_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
 WARNING:root:Warning printerslot PSTVA2772_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
 WARNING:root:Warning printerslot PSTVA2772_M0 has contradicting values in excel input/printers_by_department/ZUL.xlsx
-INFO:root:176 papersources from input/printers_by_department/ZUL.xlsx updated with cariform=cariform, twosided=False, inspect=False, workspace=workspace
-WARNING:root:124 papersources from input/printers_by_department/ZUL.xlsx updated with paperformat=paperformat [CONFLICT], cariform=cariform, twosided=False, inspect=False, workspace=workspace
-WARNING:root:PSTVA9772 has M0 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA8680 has M0 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA9735 has M0 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA6730 has M0 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA2744 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+INFO:root:174 papersources from input/printers_by_department/ZUL.xlsx updated with cariform=cariform, twosided=False, inspect=False, workspace=workspace
+WARNING:root:108 papersources from input/printers_by_department/ZUL.xlsx updated with paperformat=paperformat [CONFLICT], cariform=cariform, twosided=False, inspect=False, workspace=workspace
+WARNING:root:PSTVA1757 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1737 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1744 has S1 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1748 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1769 has S3 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1764 has S1 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1743 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1732 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA8732 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1708 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1763 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA6730 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
 WARNING:root:PSTVA2737 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA8731 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1747 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1706 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA2744 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
 WARNING:root:PSTVA2734 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1707 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA6732 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1767 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1740 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA2735 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA6770 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA2772 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA6734 has M0 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1766 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1739 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA8731 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1761 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA6729 has S3 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA2772 has M0 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA4730 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1730 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
 WARNING:root:PSTVA1742 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
 WARNING:root:PSTVA1736 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1729 has S3 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA6771 has M0 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1744 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA9772 has M0 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA6771 has M0 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA2770 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1704 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA2629 has S3 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1735 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA8732 has M0 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1741 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA2700 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA9770 has M0 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA6731 has M0 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA8770 has M0 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA6730 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA4732 has S4 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA4732 has S3 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA6730 has M0 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1764 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA8680 has M0 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA9770 has M0 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA8731 has M0 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1734 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA6732 has M0 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA8733 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1739 has S1 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1731 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1747 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA9730 has M0 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA6729 has S3 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1795 has S3 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1756 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA2731 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA8732 has M0 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1708 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA6732 has M0 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA2772 has M0 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1754 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1706 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1749 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA6770 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA8731 has M0 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1750 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA9770 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA9733 has M0 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA8732 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA4731 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA2735 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
 WARNING:root:PSTVA1771 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1740 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA9772 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1763 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA9735 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1796 has S3 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1709 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA6732 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA2772 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA2742 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA9733 has M0 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA6770 has M0 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA9731 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1705 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA4740 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA2772 has M0 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA8771 has M0 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA9735 has M0 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1733 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1703 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1749 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1700 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA8733 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA8770 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
 WARNING:root:PSTVA6731 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1764 has S1 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1748 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA8733 has M0 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1761 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA8771 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA2703 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA9771 has M0 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1743 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1739 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA9730 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1730 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1742 has S1 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA8733 has M0 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA9732 has M0 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA6731 has M0 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1757 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA2705 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1737 has S1 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA6680 has M0 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA6733 has M0 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA8771 has M0 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1781 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1744 has S1 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1755 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA9735 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA9733 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
 WARNING:root:PSTVA2733 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA6680 has M0 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA9771 has M0 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA9731 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1783 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1701 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA6729 has S2 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA2736 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1756 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA4680 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA8729 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1764 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA4740 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1702 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1753 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA4770 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1731 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
 WARNING:root:PSTVA4733 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
 WARNING:root:PSTVA1765 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA2745 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA8770 has M0 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1751 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1767 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA4680 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1700 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA8680 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1746 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1783 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA4741 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA4730 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA9731 has M0 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1755 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1702 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA8730 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA9732 has M0 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1732 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA6770 has M0 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA9732 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA9730 has M0 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA8729 has S3 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1738 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1701 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA8770 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA8730 has M0 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA9733 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1752 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA4770 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA8729 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA2705 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA2700 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1703 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA2769 has S3 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
 WARNING:root:PSTVA9771 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA6733 has M0 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1707 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA8730 has M0 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1737 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1753 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA2731 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1781 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1734 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA4732 has S3 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1705 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1737 has S1 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA2729 has S3 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA6734 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
 WARNING:root:PSTVA6733 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA9731 has M0 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA1766 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
-WARNING:root:PSTVA2736 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA2770 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA9730 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1704 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA4629 has S3 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1741 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA8730 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1738 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA9770 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1729 has S3 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1751 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1750 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA9729 has S2 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1746 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA9732 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA8771 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA8680 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA2772 has M0 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1733 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1754 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA2745 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1795 has S3 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1744 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1709 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1735 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1752 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA4732 has S4 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA2742 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1739 has S1 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA4741 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA2703 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1742 has S1 : A4 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA9772 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA4731 has S2 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:PSTVA1796 has S3 : A5 in input/printers_by_department/ZUL.xlsx but different value in printerlist of support
+WARNING:root:Workspace ID 2.0, LE-ADM-Arbeitsbereich_1, Location: AMA, Department: ADM users 48 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 160, AL-DIV-Albisgüetli, Location: Albisgüetli, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 161, WI-DIV-Winterthur, Location: Winterthur, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 162, RE-DIV-Regensdorf, Location: Regensdorf, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 163, HI-DIV-Hinwil, Location: Hinwil, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 164, OB-DIV-Oberrieden, Location: Oberrieden, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 165, BU-DIV-Bülach, Location: Bülach, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 166, GT-DIV-Bassersdorf, Location: Bassersdorf, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 167, AL-DIV-Schulung, Location: Albisgüetli, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 169, AL-IT-Test, Location: Albisgüetli, Department: IT wcps 22 has no users
+WARNING:root:Workspace ID 5.0, AL-FIN-ReWe, Location: Albisgüetli, Department: FIN users 25 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+INFO:root:8 workspaces from input/printers_by_department/SCH.xlsx sheet Arbeitsplatz added
+INFO:root:88 users added to workspaces from input/printers_by_department/SCH.xlsx
+INFO:root:5 papersources from input/printers_by_department/SCH.xlsx updated with cariform=cariform, twosided=False, inspect=False, workspace=workspace
+WARNING:root:5 papersources from input/printers_by_department/SCH.xlsx updated with paperformat=paperformat [CONFLICT], cariform=cariform, twosided=False, inspect=False, workspace=workspace
+WARNING:root:PSTVA5730 has S2 : A5 in input/printers_by_department/SCH.xlsx but different value in printerlist of support
+WARNING:root:PSTVA5732 has S2 : A5 in input/printers_by_department/SCH.xlsx but different value in printerlist of support
+WARNING:root:PSTVA7601 has S2 : A5 in input/printers_by_department/SCH.xlsx but different value in printerlist of support
+WARNING:root:PSTVA5731 has S2 : A5 in input/printers_by_department/SCH.xlsx but different value in printerlist of support
+WARNING:root:PSTVA5770 has S2 : A5 in input/printers_by_department/SCH.xlsx but different value in printerlist of support
+WARNING:root:Workspace ID 2.0, LE-ADM-Arbeitsbereich_1, Location: AMA, Department: ADM users 48 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 160, AL-DIV-Albisgüetli, Location: Albisgüetli, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 161, WI-DIV-Winterthur, Location: Winterthur, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 162, RE-DIV-Regensdorf, Location: Regensdorf, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 163, HI-DIV-Hinwil, Location: Hinwil, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 164, OB-DIV-Oberrieden, Location: Oberrieden, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 165, BU-DIV-Bülach, Location: Bülach, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 166, GT-DIV-Bassersdorf, Location: Bassersdorf, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 167, AL-DIV-Schulung, Location: Albisgüetli, Department: DIV users 15 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 169, AL-IT-Test, Location: Albisgüetli, Department: IT wcps 22 has no users
+WARNING:root:Workspace ID 5.0, AL-FIN-ReWe, Location: Albisgüetli, Department: FIN users 25 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker
+WARNING:root:Workspace ID 152.0, OB-SCH-Bus, Location: Oberrieden, Department: SCH users 11 has no wcps. This means it is probably missing in Arbeitsplatz-Formular-Drucker

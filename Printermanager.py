@@ -167,9 +167,9 @@ class Printermanager:
             if isinstance(row['libelle'], str):
                 assert row['Standort'] in (
                     'Albisgüetli', 'Winterthur', 'Regensdorf', 'Hinwil', 'Oberrieden', 'Bülach', 'Bassersdorf',
-                    'AMA'), f"Invalid location in Excel {path_to_excel_file} in row ID {row['id']}"
-                assert row['Fachabteilung'] in ('ZUL', 'IT', 'AAU', 'ADM', 'DIS', 'FIN', 'FZZ', 'PEZ',
-                                                'TEC'), f"Invalid department in Excel {path_to_excel_file} in row ID {row['id']}"
+                    'AMA', 'Tiefenbrunnen'), f"Invalid location in Excel {path_to_excel_file} in row ID {row['id']}"
+                assert row['Fachabteilung'] in ('ZUL', 'IT', 'AAU', 'ADM', 'DIS', 'DIV', 'FIN', 'FZZ', 'PEZ',
+                                                'TEC', 'SCH'), f"Invalid department in Excel {path_to_excel_file} in row ID {row['id']}"
                 self.workspaces.append(Workspace(row['id'], row['libelle'], row['Standort'], row['Fachabteilung']))
                 numbers_of_added_workspaces += 1
 
